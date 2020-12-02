@@ -32,18 +32,23 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.button) {
-            btn.setText("1");
-        } else if (v.getId() == R.id.button2) {
-            btn2.setText("1");
-        } else if (v.getId() == R.id.button3) {
-            btn3.setText("1");
-        } else if (v.getId() == R.id.button4) {
-            btn4.setText("1");
-        } else if (v.getId() == R.id.button5) {
-            btn5.setText("1");
-        }
+    public void onClick(View v)
+    {   String currentText = btn.getText().toString();
+        String currentText2 = btn2.getText().toString();
+        String currentText3 = btn3.getText().toString();
+        String currentText4 = btn4.getText().toString();
+        String currentText5 = btn5.getText().toString();
+        if (v.getId() == R.id.button)
+            btn.setText(currentText.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.button2)
+            btn2.setText(currentText2.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.button3)
+            btn3.setText(currentText3.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.button4)
+            btn4.setText(currentText4.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.button5)
+            btn5.setText(currentText5.equals("0") ? "1" : "0");
+
 
     }
 }
