@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.content.Intent;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button guzik;
+public class MainActivity extends AppCompatActivity  {
 
 
     @Override
@@ -17,24 +16,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        guzik = (Button) findViewById(R.id.guzik);
-        guzik.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLevel();
-            }
+        Button guzik = findViewById(R.id.guzik);
+        Button guzik2 = findViewById(R.id.guzik2);
+
+        guzik.setOnClickListener(v -> {
+            Intent intent1 = new Intent(MainActivity.this, Level.class);
+            startActivity(intent1);
+        });
+        guzik2.setOnClickListener(v -> {
+            Intent intent2 = new Intent(MainActivity.this, Level2.class);
+            startActivity(intent2);
         });
 
 
     }
-    @Override
-    public void onClick(View v) {
-        openLevel();
-    }
-    public void openLevel(){
-        Intent intent = new Intent(this, Level.class);
-        startActivity(intent);
-    }
 
+
+    public void onClick(View view) {
+    }
 }
 
