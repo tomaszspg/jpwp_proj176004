@@ -2,6 +2,7 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,9 @@ public class Level2 extends AppCompatActivity {
                 btnTag.setText("Button " + (j + 1 + (i * 4 )));
                 btnTag.setId(j + 1 + (i * 4));
                 row.addView(btnTag);
+                btnTag.setBackgroundColor(Color.RED);
+                btnTag.setHeight(50);
+
             }
             layout.addView(row);
         }

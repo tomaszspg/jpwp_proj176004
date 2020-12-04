@@ -3,9 +3,14 @@ package com.example.binarnyekspert;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class Level extends AppCompatActivity implements View.OnClickListener {
     private Button btn;
@@ -13,6 +18,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     private Button btn3;
     private Button btn4;
     private Button btn5;
+    TextView textView_timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,27 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
         btn4.setOnClickListener(this);
         btn5 = (Button) findViewById(R.id.button5);
         btn5.setOnClickListener(this);
+
+        textView_timer = findViewById(R.id.text_view);
+        long duration = TimeUnit.SECONDS.toMillis(20);
+        new CountDownTimer(duration, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                String sDuration = String.format(Locale.ENGLISH, "%02d : %02d"
+                    ,TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+                    ,TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
+                textView_timer.setText(sDuration);
+            }
+
+            @Override
+            public void onFinish() {
+                textView_timer.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext()
+                    ,"Koniec czasu", Toast.LENGTH_LONG).show();
+
+            }
+        }.start();
 
     }
 
