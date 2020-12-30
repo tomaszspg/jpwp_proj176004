@@ -22,24 +22,22 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6;
     private Button bt3_1, bt3_2, bt3_3, bt3_4, bt3_5, bt3_6, bt4_1, bt4_2, bt4_3, bt4_4, bt4_5, bt4_6;
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6;
+    int licznik=0;
+    int pkt=0;
 
-
-//    private List<Button> buttons;
-//    private static final int[] BUTTON_IDS = {
-//            R.id.btn1_1,
-//            R.id.btn1_2,
-//            R.id.btn1_3,
-//            R.id.btn1_4,
-//            R.id.btn1_5,
-//
-//    };
     TextView textView_timer;
+    TextView punkt;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
         switch1 = (Switch) findViewById(R.id.switch1);
+       // licznik =0;
+
+        punkt = (TextView)findViewById(R.id.punkt);
 
 
 
@@ -109,20 +107,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         });
-//        if (switch1.isChecked())
-//        {
-//            pod16.setVisibility(View.GONE);
-//        }
 
-//        buttons = new ArrayList<Button>();
-//        //buttons = new ArrayList<Button>(BUTTON_IDS.length);
-//       // ArrayList<Character> answer = new ArrayList<Character>();
-//        for (int id : BUTTON_IDS) {
-//            Button button = (Button) findViewById(id);
-//            button.setOnClickListener(this);
-//            buttons.add(button);
-//
-//        }
 
 
         textView_timer = findViewById(R.id.text_view);
@@ -149,74 +134,203 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public void onClick(View v)
     {
-        String currentText = bt1_1.getText().toString();
-        String currentText2 = bt1_2.getText().toString();
-        String currentText3 = bt1_3.getText().toString();
-        String currentText4 = bt1_4.getText().toString();
-        String currentText5 = bt1_5.getText().toString();
-        String currentText6 = bt1_6.getText().toString();
+        String currentText11 = bt1_1.getText().toString();
+        String currentText12 = bt1_2.getText().toString();
+        String currentText13 = bt1_3.getText().toString();
+        String currentText14 = bt1_4.getText().toString();
+        String currentText15 = bt1_5.getText().toString();
+        String currentText16 = bt1_6.getText().toString();
+
+        String currentText21 = bt2_1.getText().toString();
+        String currentText22 = bt2_2.getText().toString();
+        String currentText23 = bt2_3.getText().toString();
+        String currentText24 = bt2_4.getText().toString();
+        String currentText25 = bt2_5.getText().toString();
+        String currentText26 = bt2_6.getText().toString();
+
+        String currentText31 = bt3_1.getText().toString();
+        String currentText32 = bt3_2.getText().toString();
+        String currentText33 = bt3_3.getText().toString();
+        String currentText34 = bt3_4.getText().toString();
+        String currentText35 = bt3_5.getText().toString();
+        String currentText36 = bt3_6.getText().toString();
+
+        String currentText41 = bt4_1.getText().toString();
+        String currentText42 = bt4_2.getText().toString();
+        String currentText43 = bt4_3.getText().toString();
+        String currentText44 = bt4_4.getText().toString();
+        String currentText45 = bt4_5.getText().toString();
+        String currentText46 = bt4_6.getText().toString();
+
+        String currentText51 = bt5_1.getText().toString();
+        String currentText52 = bt5_2.getText().toString();
+        String currentText53 = bt5_3.getText().toString();
+        String currentText54 = bt5_4.getText().toString();
+        String currentText55 = bt5_5.getText().toString();
+        String currentText56 = bt5_6.getText().toString();
      //   bt1_6.setText(random);
         if (v.getId() == R.id.bt1_1)
-            bt1_1.setText(currentText.equals("0") ? "1" : "0" );
+            bt1_1.setText(currentText11.equals("0") ? "1" : "0" );
         if (v.getId() == R.id.bt1_2)
-            bt1_2.setText(currentText2.equals("0") ? "1" : "0");
+            bt1_2.setText(currentText12.equals("0") ? "1" : "0");
         if (v.getId() == R.id.bt1_3)
-            bt1_3.setText(currentText3.equals("0") ? "1" : "0");
+            bt1_3.setText(currentText13.equals("0") ? "1" : "0");
         if (v.getId() == R.id.bt1_4)
-            bt1_4.setText(currentText4.equals("0") ? "1" : "0");
+            bt1_4.setText(currentText14.equals("0") ? "1" : "0");
         if (v.getId() == R.id.bt1_5)
-            bt1_5.setText(currentText5.equals("0") ? "1" : "0");
+            bt1_5.setText(currentText15.equals("0") ? "1" : "0");
+
+        if (v.getId() == R.id.bt2_1)
+            bt2_1.setText(currentText21.equals("0") ? "1" : "0" );
+        if (v.getId() == R.id.bt2_2)
+            bt2_2.setText(currentText22.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt2_3)
+            bt2_3.setText(currentText23.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt2_4)
+            bt2_4.setText(currentText24.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt2_5)
+            bt2_5.setText(currentText25.equals("0") ? "1" : "0");
+
+        if (v.getId() == R.id.bt3_1)
+            bt3_1.setText(currentText31.equals("0") ? "1" : "0" );
+        if (v.getId() == R.id.bt3_2)
+            bt3_2.setText(currentText32.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt3_3)
+            bt3_3.setText(currentText33.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt3_4)
+            bt3_4.setText(currentText34.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt3_5)
+            bt3_5.setText(currentText35.equals("0") ? "1" : "0" );
+
+        if (v.getId() == R.id.bt4_1)
+            bt4_1.setText(currentText41.equals("0") ? "1" : "0" );
+        if (v.getId() == R.id.bt4_2)
+            bt4_2.setText(currentText42.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt4_3)
+            bt4_3.setText(currentText43.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt4_4)
+            bt4_4.setText(currentText44.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt4_5)
+            bt4_5.setText(currentText45.equals("0") ? "1" : "0");
+
+        if (v.getId() == R.id.bt5_1)
+            bt5_1.setText(currentText51.equals("0") ? "1" : "0" );
+        if (v.getId() == R.id.bt5_2)
+            bt5_2.setText(currentText52.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt5_3)
+            bt5_3.setText(currentText53.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt5_4)
+            bt5_4.setText(currentText54.equals("0") ? "1" : "0");
+        if (v.getId() == R.id.bt5_5)
+            bt5_5.setText(currentText55.equals("0") ? "1" : "0");
        // String row1 = bt1_1.getText()+ bt1_2.getText()+bt1_3.getText()+bt1_4.getText()+bt1_5.getText();
         String row1 = bt1_1.getText().toString() + bt1_2.getText().toString() + bt1_3.getText().toString() + bt1_4.getText().toString() + bt1_5.getText().toString() ;
+        String row2 = bt2_1.getText().toString() + bt2_2.getText().toString() + bt2_3.getText().toString() + bt2_4.getText().toString() + bt2_5.getText().toString() ;
+        String row3 = bt3_1.getText().toString() + bt3_2.getText().toString() + bt3_3.getText().toString() + bt3_4.getText().toString() + bt3_5.getText().toString() ;
+        String row4 = bt4_1.getText().toString() + bt4_2.getText().toString() + bt4_3.getText().toString() + bt4_4.getText().toString() + bt4_5.getText().toString() ;
+        String row5 = bt5_1.getText().toString() + bt5_2.getText().toString() + bt5_3.getText().toString() + bt5_4.getText().toString() + bt5_5.getText().toString() ;
         int dec1= Integer.parseInt(row1,2); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik=Integer.parseInt(bt1_6.getText().toString());
         if (dec1==wynik)
             {
-                Toast.makeText(getApplicationContext()
-                    , "Git jest", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext()
+//                    , "Git jest", Toast.LENGTH_LONG).show();
                 bt1_1.setVisibility(View.INVISIBLE);
                 bt1_2.setVisibility(View.INVISIBLE);
                 bt1_3.setVisibility(View.INVISIBLE);
                 bt1_4.setVisibility(View.INVISIBLE);
                 bt1_5.setVisibility(View.INVISIBLE);
                 bt1_6.setVisibility(View.INVISIBLE);
+                licznik++;
+                pkt+=10;
+                bt1_6.setText("0");
+
+
+
             }
+        int dec2= Integer.parseInt(row2,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int wynik2=Integer.parseInt(bt2_6.getText().toString());
+        if (dec2==wynik2)
+        {
+//            Toast.makeText(getApplicationContext()
+//                    , "Git jest", Toast.LENGTH_LONG).show();
+            bt2_1.setVisibility(View.INVISIBLE);
+            bt2_2.setVisibility(View.INVISIBLE);
+            bt2_3.setVisibility(View.INVISIBLE);
+            bt2_4.setVisibility(View.INVISIBLE);
+            bt2_5.setVisibility(View.INVISIBLE);
+            bt2_6.setVisibility(View.INVISIBLE);
+            licznik++;
+            pkt+=10;
+            bt2_6.setText("0");
+        }
+        int dec3= Integer.parseInt(row3,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int wynik3=Integer.parseInt(bt3_6.getText().toString());
+        if (dec3==wynik3)
+        {
+//            Toast.makeText(getApplicationContext()
+//                    , "Git jest", Toast.LENGTH_LONG).show();
+            bt3_1.setVisibility(View.INVISIBLE);
+            bt3_2.setVisibility(View.INVISIBLE);
+            bt3_3.setVisibility(View.INVISIBLE);
+            bt3_4.setVisibility(View.INVISIBLE);
+            bt3_5.setVisibility(View.INVISIBLE);
+            bt3_6.setVisibility(View.INVISIBLE);
+            licznik++;
+            pkt+=10;
+            bt3_6.setText("0");
+        }
+        int dec4= Integer.parseInt(row4,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int wynik4=Integer.parseInt(bt4_6.getText().toString());
+        if (dec4==wynik4)
+        {
+//            Toast.makeText(getApplicationContext()
+//                    , "Git jest", Toast.LENGTH_LONG).show();
+            bt4_1.setVisibility(View.INVISIBLE);
+            bt4_2.setVisibility(View.INVISIBLE);
+            bt4_3.setVisibility(View.INVISIBLE);
+            bt4_4.setVisibility(View.INVISIBLE);
+            bt4_5.setVisibility(View.INVISIBLE);
+            bt4_6.setVisibility(View.INVISIBLE);
+            licznik++;
+            pkt+=10;
+            bt4_6.setText("0");
+        }
+        int dec5= Integer.parseInt(row5,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int wynik5=Integer.parseInt(bt5_6.getText().toString());
+        if (dec5==wynik5)
+        {
+           // Toast.makeText(getApplicationContext()
+           //         , "Git jest", Toast.LENGTH_LONG).show();
+            bt5_1.setVisibility(View.INVISIBLE);
+            bt5_2.setVisibility(View.INVISIBLE);
+            bt5_3.setVisibility(View.INVISIBLE);
+            bt5_4.setVisibility(View.INVISIBLE);
+            bt5_5.setVisibility(View.INVISIBLE);
+            bt5_6.setVisibility(View.INVISIBLE);
+            licznik++;
+            pkt+=10;
+            bt5_6.setText("0");
+
+        }
+        if (licznik==5)
+        {
+            Toast.makeText(getApplicationContext()
+                , "Wygrana", Toast.LENGTH_LONG).show();
+        }
+        punkt.setText(String.valueOf(pkt));
 
 
-
-
-
-
-        // String currentText = buttons.getText().toString();
-//        String currentText2 = btn2.getText().toString();
-//        String currentText3 = btn3.getText().toString();
-//        String currentText4 = btn4.getText().toString();
-//        String currentText5 = btn5.getText().toString();
-     //   if (v.getId() == R.id.button)
-      //      btn1_1.setText(currentText.equals("0") ? "1" : "0");
-//        if (v.getId() == R.id.button2)
-//            btn2.setText(currentText2.equals("0") ? "1" : "0");
-//        if (v.getId() == R.id.button3)
-//            btn3.setText(currentText3.equals("0") ? "1" : "0");
-//        if (v.getId() == R.id.button4)
-//            btn4.setText(currentText4.equals("0") ? "1" : "0");
-//        if (v.getId() == R.id.button5)
-//            btn5.setText(currentText5.equals("0") ? "1" : "0");
 
 
     }
 
 
-//    String getValuesPressed(){
-//
-//        for(int i = 0; i < buttons.length; i++){
-//            buttons[i].setOnClickListener(new MyClickListener(i));
-//        }
-//
-//        return textOnScreen;
-//    }
+
 
 }
