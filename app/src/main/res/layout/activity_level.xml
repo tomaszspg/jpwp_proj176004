@@ -17,6 +17,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#9A32AC"
         app:layout_constraintBottom_toTopOf="@+id/bt3_3"
         app:layout_constraintStart_toEndOf="@+id/bt4_2" />
@@ -29,6 +30,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#9A32AC"
         app:layout_constraintBottom_toTopOf="@+id/bt3_4"
         app:layout_constraintStart_toEndOf="@+id/bt4_3" />
@@ -41,6 +43,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="4dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#9A32AC"
         app:layout_constraintBottom_toTopOf="@+id/bt3_5"
         app:layout_constraintStart_toEndOf="@+id/bt4_4" />
@@ -53,6 +56,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginBottom="5dp"
         android:text="X"
+        android:visibility="invisible"
         app:backgroundTint="#A19528"
         app:layout_constraintBottom_toTopOf="@+id/bt2_6"
         app:layout_constraintStart_toEndOf="@+id/bt3_5" />
@@ -65,6 +69,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginBottom="5dp"
         android:text="X"
+        android:visibility="invisible"
         app:backgroundTint="#751A85"
         app:layout_constraintBottom_toTopOf="@+id/bt3_6"
         app:layout_constraintStart_toEndOf="@+id/bt4_5" />
@@ -77,6 +82,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginBottom="5dp"
         android:text="X"
+        android:visibility="invisible"
         app:backgroundTint="#8E6216"
         app:layout_constraintBottom_toTopOf="@+id/bt4_6"
         app:layout_constraintStart_toEndOf="@+id/bt5_5" />
@@ -89,6 +95,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#869116"
         app:layout_constraintBottom_toTopOf="@+id/bt2_1"
         app:layout_constraintStart_toStartOf="parent" />
@@ -101,6 +108,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#9A32AC"
         app:layout_constraintBottom_toTopOf="@+id/bt3_1"
         app:layout_constraintStart_toStartOf="parent" />
@@ -113,6 +121,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#BD821E"
         app:layout_constraintBottom_toTopOf="@+id/bt4_1"
         app:layout_constraintStart_toStartOf="parent" />
@@ -125,6 +134,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#BD821E"
         app:layout_constraintBottom_toTopOf="@+id/bt4_2"
         app:layout_constraintStart_toEndOf="@+id/bt5_1" />
@@ -137,6 +147,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#BD821E"
         app:layout_constraintBottom_toTopOf="@+id/bt4_5"
         app:layout_constraintStart_toEndOf="@+id/bt5_4" />
@@ -149,6 +160,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#BD821E"
         app:layout_constraintBottom_toTopOf="@+id/bt4_4"
         app:layout_constraintStart_toEndOf="@+id/bt5_3" />
@@ -161,6 +173,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#BD821E"
         app:layout_constraintBottom_toTopOf="@+id/bt4_3"
         app:layout_constraintStart_toEndOf="@+id/bt5_2" />
@@ -173,6 +186,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#9A32AC"
         app:layout_constraintBottom_toTopOf="@+id/bt3_2"
         app:layout_constraintStart_toEndOf="@+id/bt4_1" />
@@ -233,6 +247,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="104dp"
         android:text="0"
+
         app:backgroundTint="#188A1A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -269,6 +284,7 @@
         android:layout_marginBottom="5dp"
         android:onClick="onClick"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bt1_4"
         app:layout_constraintStart_toEndOf="@+id/bt2_3" />
 
@@ -281,6 +297,7 @@
         android:layout_marginBottom="5dp"
         android:onClick="onClick"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bt1_5"
         app:layout_constraintStart_toEndOf="@+id/bt2_4" />
 
@@ -292,6 +309,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bt1_1"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -303,6 +321,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#869116"
         app:layout_constraintBottom_toTopOf="@+id/bt2_2"
         app:layout_constraintStart_toEndOf="@+id/bt3_1" />
@@ -315,6 +334,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#869116"
         app:layout_constraintBottom_toTopOf="@+id/bt2_3"
         app:layout_constraintStart_toEndOf="@+id/bt3_2" />
@@ -327,6 +347,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#869116"
         app:layout_constraintBottom_toTopOf="@+id/bt2_4"
         app:layout_constraintStart_toEndOf="@+id/bt3_3" />
@@ -339,6 +360,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:backgroundTint="#869116"
         app:layout_constraintBottom_toTopOf="@+id/bt2_5"
         app:layout_constraintStart_toEndOf="@+id/bt3_4" />
@@ -351,6 +373,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bt1_2"
         app:layout_constraintStart_toEndOf="@+id/bt2_1" />
 
@@ -362,6 +385,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="5dp"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bt1_3"
         app:layout_constraintStart_toEndOf="@+id/bt2_2" />
 
@@ -373,6 +397,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginBottom="5dp"
         android:text="X"
+        android:visibility="invisible"
         app:backgroundTint="#18277C"
         app:layout_constraintBottom_toTopOf="@+id/bt1_6"
         app:layout_constraintStart_toEndOf="@+id/bt2_5" />

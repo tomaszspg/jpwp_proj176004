@@ -39,10 +39,23 @@
         android:id="@+id/guzik"
         android:layout_width="163dp"
         android:layout_height="70dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="400dp"
-        android:text="ŁATWY"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="328dp"
+        android:text="średni"
+        android:textSize="18sp"
+        app:backgroundTint="#2A6C2D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/guzik4"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginBottom="328dp"
+        android:text="średni"
         android:textSize="18sp"
         app:backgroundTint="#2A6C2D"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,20 +65,33 @@
         android:id="@+id/guzik2"
         android:layout_width="163dp"
         android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:text="Średni"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="12dp"
+        android:text="ŁATWY"
         android:textSize="18sp"
         app:backgroundTint="#879127"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/guzik"
-        app:layout_constraintTop_toBottomOf="@+id/guzik" />
+        app:layout_constraintBottom_toTopOf="@+id/guzik"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/guzik3"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginBottom="12dp"
+        android:text="ŁATWY"
+        android:textSize="18sp"
+        app:backgroundTint="#879127"
+        app:layout_constraintBottom_toTopOf="@+id/guzik4"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="180dp"
         android:text="Wybierz poziom trudności"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -77,13 +103,26 @@
         android:id="@+id/button12"
         android:layout_width="163dp"
         android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginBottom="240dp"
         android:text="Trudny"
         android:textSize="18sp"
         app:backgroundTint="#8A0707"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guzik2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginBottom="240dp"
+        android:text="Trudny"
+        android:textSize="18sp"
+        app:backgroundTint="#8A0707"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

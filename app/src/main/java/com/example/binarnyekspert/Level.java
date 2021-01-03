@@ -24,6 +24,17 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6;
     int licznik=0;
     int pkt=0;
+    int rz1=0; //0 - startuje, 2- zrobiony 1- poprzedni rzad zrobiony wiec w gotowosci
+    int rz2=0;
+    int rz3=0;
+    int rz4=0;
+    int rz5=0;
+    boolean rz22;
+    boolean rz33;
+    boolean rz44;
+    boolean rz55;
+    boolean timerstop;
+
 
     TextView textView_timer;
     TextView punkt;
@@ -36,6 +47,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_level);
         switch1 = (Switch) findViewById(R.id.switch1);
        // licznik =0;
+
 
         punkt = (TextView)findViewById(R.id.punkt);
 
@@ -79,11 +91,11 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
         bt5_5 = (Button) findViewById(R.id.bt5_5); bt5_5.setOnClickListener(this);
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(31)+1));
-        bt2_6.setText(Integer.toString(rand.nextInt(31)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(31)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(31)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(31)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(10)+1)); //MAX 31
+        bt2_6.setText(Integer.toString(rand.nextInt(10)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(10)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(10)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(10)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -111,7 +123,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(20);
+        long duration = TimeUnit.SECONDS.toMillis(7);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -119,14 +131,104 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                         , TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
                         , TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
-                textView_timer.setText(sDuration);
+                textView_timer.setText(sDuration); //0 - startuje, 2- zrobiony wiec nic, 1- poprzedni rzad wyklikany, 3- poprzedni niewyklikany
+                if (rz2==1)
+                {
+                    bt2_1.setVisibility(View.VISIBLE);
+                    bt2_2.setVisibility(View.VISIBLE);
+                    bt2_3.setVisibility(View.VISIBLE);
+                    bt2_4.setVisibility(View.VISIBLE);
+                    bt2_5.setVisibility(View.VISIBLE);
+                    bt2_6.setVisibility(View.VISIBLE);
+                    rz3=3;
+
+                }
+                if (rz3==1)
+                {
+                    bt3_1.setVisibility(View.VISIBLE);
+                    bt3_2.setVisibility(View.VISIBLE);
+                    bt3_3.setVisibility(View.VISIBLE);
+                    bt3_4.setVisibility(View.VISIBLE);
+                    bt3_5.setVisibility(View.VISIBLE);
+                    bt3_6.setVisibility(View.VISIBLE);
+                    rz4=3;
+
+                }
+                if (rz4==1)
+                {
+                    bt4_1.setVisibility(View.VISIBLE);
+                    bt4_2.setVisibility(View.VISIBLE);
+                    bt4_3.setVisibility(View.VISIBLE);
+                    bt4_4.setVisibility(View.VISIBLE);
+                    bt4_5.setVisibility(View.VISIBLE);
+                    bt4_6.setVisibility(View.VISIBLE);
+                    rz5=3;
+
+                }
+                if (rz5==1)
+                {
+                    bt5_1.setVisibility(View.VISIBLE);
+                    bt5_2.setVisibility(View.VISIBLE);
+                    bt5_3.setVisibility(View.VISIBLE);
+                    bt5_4.setVisibility(View.VISIBLE);
+                    bt5_5.setVisibility(View.VISIBLE);
+                    bt5_6.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void onFinish() {
-                textView_timer.setVisibility(View.GONE);
-                Toast.makeText(getApplicationContext()
-                        , "Koniec czasu", Toast.LENGTH_LONG).show();
+
+              //  textView_timer.setVisibility(View.GONE);
+//                Toast.makeText(getApplicationContext()
+//                        , "Koniec czasu", Toast.LENGTH_LONG).show();
+                if (rz2==0 & rz2!=2) //drugi rzad startuje
+                {
+                    bt2_1.setVisibility(View.VISIBLE);
+                    bt2_2.setVisibility(View.VISIBLE);
+                    bt2_3.setVisibility(View.VISIBLE);
+                    bt2_4.setVisibility(View.VISIBLE);
+                    bt2_5.setVisibility(View.VISIBLE);
+                    bt2_6.setVisibility(View.VISIBLE);
+                    rz22=true;
+                }
+                if (rz3==3 & rz3!=2) //drugi rzad startuje
+                {
+                    bt3_1.setVisibility(View.VISIBLE);
+                    bt3_2.setVisibility(View.VISIBLE);
+                    bt3_3.setVisibility(View.VISIBLE);
+                    bt3_4.setVisibility(View.VISIBLE);
+                    bt3_5.setVisibility(View.VISIBLE);
+                    bt3_6.setVisibility(View.VISIBLE);
+                    rz33=true;
+                }
+                if (rz4==3 & rz4!=2) //drugi rzad startuje
+                {
+                    bt4_1.setVisibility(View.VISIBLE);
+                    bt4_2.setVisibility(View.VISIBLE);
+                    bt4_3.setVisibility(View.VISIBLE);
+                    bt4_4.setVisibility(View.VISIBLE);
+                    bt4_5.setVisibility(View.VISIBLE);
+                    bt4_6.setVisibility(View.VISIBLE);
+                    rz44=true;
+                }
+                if (rz5==3 & rz5!=2) //drugi rzad startuje
+                {
+                    bt5_1.setVisibility(View.VISIBLE);
+                    bt5_2.setVisibility(View.VISIBLE);
+                    bt5_3.setVisibility(View.VISIBLE);
+                    bt5_4.setVisibility(View.VISIBLE);
+                    bt5_5.setVisibility(View.VISIBLE);
+                    bt5_6.setVisibility(View.VISIBLE);
+                    rz55=true;
+                    timerstop=true;
+                }
+                if (timerstop==true) textView_timer.setVisibility(View.GONE);
+                    else this.start();
+                if (rz22==true &rz3!=2) rz3=3; //trojka gotowa do pojawienia w nastepnym timerze
+                if (rz33==true &rz4!=2) rz4=3; //czworka gotowa do pojawienia w nastepnym timerze
+                if (rz44==true &rz5!=2) {rz5=3; timerstop=true;} ; //piatka gotowa do pojawienia w nastepnym timerze
+
 
             }
         }.start();
@@ -139,6 +241,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v)
     {
+
         String currentText11 = bt1_1.getText().toString();
         String currentText12 = bt1_2.getText().toString();
         String currentText13 = bt1_3.getText().toString();
@@ -246,6 +349,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 bt1_4.setVisibility(View.INVISIBLE);
                 bt1_5.setVisibility(View.INVISIBLE);
                 bt1_6.setVisibility(View.INVISIBLE);
+                rz1=2;
+                if (rz2!=2) rz2=1;
                 licznik++;
                 pkt+=10;
                 bt1_6.setText("0");
@@ -266,6 +371,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
             bt2_5.setVisibility(View.INVISIBLE);
             bt2_6.setVisibility(View.INVISIBLE);
             licznik++;
+            rz2=2;
+            if (rz3!=2) rz3=1;
             pkt+=10;
             bt2_6.setText("0");
         }
@@ -282,6 +389,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
             bt3_5.setVisibility(View.INVISIBLE);
             bt3_6.setVisibility(View.INVISIBLE);
             licznik++;
+            rz3=2;
+            if (rz4!=2) rz4=1;
             pkt+=10;
             bt3_6.setText("0");
         }
@@ -298,6 +407,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
             bt4_5.setVisibility(View.INVISIBLE);
             bt4_6.setVisibility(View.INVISIBLE);
             licznik++;
+            rz4=2;
+            if (rz5!=2) rz5=1;
             pkt+=10;
             bt4_6.setText("0");
         }
@@ -314,6 +425,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
             bt5_5.setVisibility(View.INVISIBLE);
             bt5_6.setVisibility(View.INVISIBLE);
             licznik++;
+            rz5=2;
+            timerstop=true;
             pkt+=10;
             bt5_6.setText("0");
 
