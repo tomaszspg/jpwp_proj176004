@@ -18,16 +18,31 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button guzik = findViewById(R.id.guzik);
-        Button guzik2 = findViewById(R.id.guzik2);
+        Button sredni = findViewById(R.id.sredni);
+        Button latwy = findViewById(R.id.latwy);
+        Button trudny = findViewById(R.id.trudny);
+        Button pomoc = findViewById(R.id.pomoc);
+        Button ranking = findViewById(R.id.ranking);
 
-        guzik.setOnClickListener(v -> {
-            Intent intent1 = new Intent(MainActivity.this, Level.class);
+        sredni.setOnClickListener(v -> {
+            Intent intent1 = new Intent(MainActivity.this, Sredni3.class);
             startActivity(intent1);
         });
-        guzik2.setOnClickListener(v -> {
-            Intent intent2 = new Intent(MainActivity.this, Level2.class);
+        latwy.setOnClickListener(v -> {
+            Intent intent2 = new Intent(MainActivity.this, Latwy3.class);
             startActivity(intent2);
+        });
+        trudny.setOnClickListener(v -> {
+            Intent intent5 = new Intent(MainActivity.this, Trudny.class);
+            startActivity(intent5);
+        });
+        pomoc.setOnClickListener(v -> {
+            Intent intent3 = new Intent(MainActivity.this, Pomoc.class);
+            startActivity(intent3);
+        });
+        ranking.setOnClickListener(v -> {
+            Intent intent4 = new Intent(MainActivity.this, Ranking.class);
+            startActivity(intent4);
         });
 
 

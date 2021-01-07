@@ -9,9 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BinarnyEkspert">
-        <activity android:name=".Level2"></activity>
-        <activity android:name=".Level" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Latwy3"></activity>
+        <activity android:name=".Latwy2" />
+        <activity
+            android:name=".Sredni3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sredni2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Trudny"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Pomoc"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ranking"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Latwy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sredni"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
