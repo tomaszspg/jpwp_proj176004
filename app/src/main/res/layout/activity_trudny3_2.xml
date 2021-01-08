@@ -424,7 +424,7 @@
         android:background="@drawable/my_rectangle"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:text="Poziom 1"
+        android:text="Poziom 2"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -632,60 +632,60 @@
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginBottom="60dp"
-        android:text="16"
+        android:text="81"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="16" />
+        tools:text="81" />
 
     <TextView
         android:id="@+id/pod32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="14dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="60dp"
-        android:text="32"
+        android:text="243"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="32" />
+        tools:text="243" />
 
     <TextView
         android:id="@+id/pod8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="25dp"
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="60dp"
-        android:text="8"
+        android:text="27"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
 
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod16"
-        tools:text="8" />
+        tools:text="27" />
 
     <TextView
         android:id="@+id/pod4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="34dp"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="60dp"
-        android:text="4"
+        android:text="9"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
 
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod8"
-        tools:text="4" />
+        tools:text="9" />
 
     <TextView
         android:id="@+id/pod2"
@@ -694,13 +694,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="60dp"
-        android:text="2"
+        android:text="3"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod4"
-        tools:text="2" />
+        tools:text="3" />
 
     <TextView
         android:id="@+id/pod1"
@@ -780,7 +780,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:text="0"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

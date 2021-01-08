@@ -169,7 +169,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
                     bt2_4.setVisibility(View.VISIBLE);
 
                     bt2_6.setVisibility(View.VISIBLE);
-                    rz3=3;
+                    if (rz3!=2) rz3=3;
                     if (temp1==false){
                         this.cancel();
                         this.start();}
@@ -184,7 +184,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
                     bt3_4.setVisibility(View.VISIBLE);
 
                     bt3_6.setVisibility(View.VISIBLE);
-                    rz4=3;
+                    if (rz4!=2) rz4=3;
                     if (temp2==false){
                         this.cancel();
                         this.start();}
@@ -199,7 +199,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
                     bt4_4.setVisibility(View.VISIBLE);
 
                     bt4_6.setVisibility(View.VISIBLE);
-                    rz5=3;
+                    if (rz5!=2) rz5=3;
                     if (temp3==false){
                         this.cancel();
                         this.start();}

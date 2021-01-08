@@ -16,7 +16,7 @@ import java.util.Locale;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Trudny extends AppCompatActivity implements View.OnClickListener {
+public class Trudny3_2 extends AppCompatActivity implements View.OnClickListener {
     private Switch switch1;
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt1_7, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6, bt2_7;
     private Button bt3_1, bt3_2, bt3_3, bt3_4, bt3_5, bt3_6, bt3_7, bt4_1, bt4_2, bt4_3, bt4_4, bt4_5, bt4_6, bt4_7;
@@ -49,13 +49,17 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trudny);
+        setContentView(R.layout.activity_trudny3_2);
         switch1 = (Switch) findViewById(R.id.switch1);
         // licznik =0;
 
 
         punkt = (TextView)findViewById(R.id.punkt);
         punkt2 = (TextView)findViewById(R.id.punkt2);
+
+        Intent intent = getIntent();
+        pkt = intent.getIntExtra("Punkt", 5);
+        punkt.setText(String.valueOf(pkt));
 
 
 
@@ -110,12 +114,12 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
         bt6_6 = (Button) findViewById(R.id.bt6_6); bt6_6.setOnClickListener(this);
         bt6_7 = (Button) findViewById(R.id.bt6_7); bt6_7.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(2)+1)); //MAX 31
-        bt2_6.setText(Integer.toString(rand.nextInt(2)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(2)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(2)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(2)+1));
-        bt6_6.setText(Integer.toString(rand.nextInt(2)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(9)+1)); //MAX 31
+        bt2_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt6_6.setText(Integer.toString(rand.nextInt(9)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -377,82 +381,257 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
         String currentText67 = bt6_7.getText().toString();
         //   bt1_6.setText(random);
         if (v.getId() == R.id.bt1_1)
-            bt1_1.setText(currentText11.equals("0") ? "1" : "0" );
+        {
+            if (currentText11.equals("0")) bt1_1.setText("1");
+            else if (currentText11.equals("1")) bt1_1.setText("2");
+            else bt1_1.setText("0");
+        }
         if (v.getId() == R.id.bt1_2)
-            bt1_2.setText(currentText12.equals("0") ? "1" : "0");
+        {
+            if (currentText12.equals("0")) bt1_2.setText("1");
+            else if (currentText12.equals("1")) bt1_2.setText("2");
+            else bt1_2.setText("0");
+        }
         if (v.getId() == R.id.bt1_3)
-            bt1_3.setText(currentText13.equals("0") ? "1" : "0");
+        {
+            if (currentText13.equals("0")) bt1_3.setText("1");
+            else if (currentText13.equals("1")) bt1_3.setText("2");
+            else bt1_3.setText("0");
+        }
         if (v.getId() == R.id.bt1_4)
-            bt1_4.setText(currentText14.equals("0") ? "1" : "0");
+        {
+            if (currentText14.equals("0")) bt1_4.setText("1");
+            else if (currentText14.equals("1")) bt1_4.setText("2");
+            else bt1_4.setText("0");
+        }
         if (v.getId() == R.id.bt1_5)
-            bt1_5.setText(currentText15.equals("0") ? "1" : "0");
+        {
+            if (currentText15.equals("0")) bt1_5.setText("1");
+            else if (currentText15.equals("1")) bt1_5.setText("2");
+            else bt1_5.setText("0");
+        }
+        if (v.getId() == R.id.bt1_6)
+        {
+            if (currentText16.equals("0")) bt1_6.setText("1");
+            else if (currentText16.equals("1")) bt1_6.setText("2");
+            else bt1_6.setText("0");
+        }
         if (v.getId() == R.id.bt1_7)
-            bt1_7.setText(currentText17.equals("0") ? "1" : "0");
-
+        {
+            if (currentText17.equals("0")) bt1_7.setText("1");
+            else if (currentText17.equals("1")) bt1_7.setText("2");
+            else bt1_7.setText("0");
+        }
         if (v.getId() == R.id.bt2_1)
-            bt2_1.setText(currentText21.equals("0") ? "1" : "0" );
+        {
+            if (currentText21.equals("0")) bt2_1.setText("1");
+            else if (currentText21.equals("1")) bt2_1.setText("2");
+            else bt2_1.setText("0");
+        }
         if (v.getId() == R.id.bt2_2)
-            bt2_2.setText(currentText22.equals("0") ? "1" : "0");
+        {
+            if (currentText22.equals("0")) bt2_2.setText("1");
+            else if (currentText22.equals("1")) bt2_2.setText("2");
+            else bt2_2.setText("0");
+        }
         if (v.getId() == R.id.bt2_3)
-            bt2_3.setText(currentText23.equals("0") ? "1" : "0");
+        {
+            if (currentText23.equals("0")) bt2_3.setText("1");
+            else if (currentText23.equals("1")) bt2_3.setText("2");
+            else bt2_3.setText("0");
+        }
         if (v.getId() == R.id.bt2_4)
-            bt2_4.setText(currentText24.equals("0") ? "1" : "0");
+        {
+            if (currentText24.equals("0")) bt2_4.setText("1");
+            else if (currentText24.equals("1")) bt2_4.setText("2");
+            else bt2_4.setText("0");
+        }
         if (v.getId() == R.id.bt2_5)
-            bt2_5.setText(currentText25.equals("0") ? "1" : "0");
+        {
+            if (currentText25.equals("0")) bt2_5.setText("1");
+            else if (currentText25.equals("1")) bt2_5.setText("2");
+            else bt2_5.setText("0");
+        }
+        if (v.getId() == R.id.bt2_6)
+        {
+            if (currentText26.equals("0")) bt2_6.setText("1");
+            else if (currentText26.equals("1")) bt2_6.setText("2");
+            else bt2_6.setText("0");
+        }
         if (v.getId() == R.id.bt2_7)
-            bt2_7.setText(currentText27.equals("0") ? "1" : "0");
-
+        {
+            if (currentText27.equals("0")) bt2_7.setText("1");
+            else if (currentText27.equals("1")) bt2_7.setText("2");
+            else bt2_7.setText("0");
+        }
         if (v.getId() == R.id.bt3_1)
-            bt3_1.setText(currentText31.equals("0") ? "1" : "0" );
+        {
+            if (currentText31.equals("0")) bt3_1.setText("1");
+            else if (currentText31.equals("1")) bt3_1.setText("2");
+            else bt3_1.setText("0");
+        }
         if (v.getId() == R.id.bt3_2)
-            bt3_2.setText(currentText32.equals("0") ? "1" : "0");
+        {
+            if (currentText32.equals("0")) bt3_2.setText("1");
+            else if (currentText32.equals("1")) bt3_2.setText("2");
+            else bt3_2.setText("0");
+        }
         if (v.getId() == R.id.bt3_3)
-            bt3_3.setText(currentText33.equals("0") ? "1" : "0");
+        {
+            if (currentText33.equals("0")) bt3_3.setText("1");
+            else if (currentText33.equals("1")) bt3_3.setText("2");
+            else bt3_3.setText("0");
+        }
         if (v.getId() == R.id.bt3_4)
-            bt3_4.setText(currentText34.equals("0") ? "1" : "0");
+        {
+            if (currentText34.equals("0")) bt3_4.setText("1");
+            else if (currentText34.equals("1")) bt3_4.setText("2");
+            else bt3_4.setText("0");
+        }
         if (v.getId() == R.id.bt3_5)
-            bt3_5.setText(currentText35.equals("0") ? "1" : "0" );
+        {
+            if (currentText35.equals("0")) bt3_5.setText("1");
+            else if (currentText35.equals("1")) bt3_5.setText("2");
+            else bt3_5.setText("0");
+        }
+        if (v.getId() == R.id.bt3_6)
+        {
+            if (currentText36.equals("0")) bt3_6.setText("1");
+            else if (currentText36.equals("1")) bt3_6.setText("2");
+            else bt3_6.setText("0");
+        }
         if (v.getId() == R.id.bt3_7)
-            bt3_7.setText(currentText37.equals("0") ? "1" : "0" );
-
+        {
+            if (currentText37.equals("0")) bt3_7.setText("1");
+            else if (currentText37.equals("1")) bt3_7.setText("2");
+            else bt3_7.setText("0");
+        }
         if (v.getId() == R.id.bt4_1)
-            bt4_1.setText(currentText41.equals("0") ? "1" : "0" );
+        {
+            if (currentText41.equals("0")) bt4_1.setText("1");
+            else if (currentText41.equals("1")) bt4_1.setText("2");
+            else bt4_1.setText("0");
+        }
         if (v.getId() == R.id.bt4_2)
-            bt4_2.setText(currentText42.equals("0") ? "1" : "0");
+        {
+            if (currentText42.equals("0")) bt4_2.setText("1");
+            else if (currentText42.equals("1")) bt4_2.setText("2");
+            else bt4_2.setText("0");
+        }
         if (v.getId() == R.id.bt4_3)
-            bt4_3.setText(currentText43.equals("0") ? "1" : "0");
+        {
+            if (currentText43.equals("0")) bt4_3.setText("1");
+            else if (currentText43.equals("1")) bt4_3.setText("2");
+            else bt4_3.setText("0");
+        }
         if (v.getId() == R.id.bt4_4)
-            bt4_4.setText(currentText44.equals("0") ? "1" : "0");
+        {
+            if (currentText44.equals("0")) bt4_4.setText("1");
+            else if (currentText44.equals("1")) bt4_4.setText("2");
+            else bt4_4.setText("0");
+        }
         if (v.getId() == R.id.bt4_5)
-            bt4_5.setText(currentText45.equals("0") ? "1" : "0");
+        {
+            if (currentText45.equals("0")) bt4_5.setText("1");
+            else if (currentText45.equals("1")) bt4_5.setText("2");
+            else bt4_5.setText("0");
+        }
+        if (v.getId() == R.id.bt4_6)
+        {
+            if (currentText46.equals("0")) bt4_6.setText("1");
+            else if (currentText46.equals("1")) bt4_6.setText("2");
+            else bt4_6.setText("0");
+        }
         if (v.getId() == R.id.bt4_7)
-            bt4_7.setText(currentText47.equals("0") ? "1" : "0");
-
+        {
+            if (currentText47.equals("0")) bt4_7.setText("1");
+            else if (currentText47.equals("1")) bt4_7.setText("2");
+            else bt4_7.setText("0");
+        }
         if (v.getId() == R.id.bt5_1)
-            bt5_1.setText(currentText51.equals("0") ? "1" : "0" );
+        {
+            if (currentText51.equals("0")) bt5_1.setText("1");
+            else if (currentText51.equals("1")) bt5_1.setText("2");
+            else bt5_1.setText("0");
+        }
         if (v.getId() == R.id.bt5_2)
-            bt5_2.setText(currentText52.equals("0") ? "1" : "0");
+        {
+            if (currentText52.equals("0")) bt5_2.setText("1");
+            else if (currentText52.equals("1")) bt5_2.setText("2");
+            else bt5_2.setText("0");
+        }
         if (v.getId() == R.id.bt5_3)
-            bt5_3.setText(currentText53.equals("0") ? "1" : "0");
+        {
+            if (currentText53.equals("0")) bt5_3.setText("1");
+            else if (currentText53.equals("1")) bt5_3.setText("2");
+            else bt5_3.setText("0");
+        }
         if (v.getId() == R.id.bt5_4)
-            bt5_4.setText(currentText54.equals("0") ? "1" : "0");
+        {
+            if (currentText54.equals("0")) bt5_4.setText("1");
+            else if (currentText54.equals("1")) bt5_4.setText("2");
+            else bt5_4.setText("0");
+        }
         if (v.getId() == R.id.bt5_5)
-            bt5_5.setText(currentText55.equals("0") ? "1" : "0");
+        {
+            if (currentText55.equals("0")) bt5_5.setText("1");
+            else if (currentText55.equals("1")) bt5_5.setText("2");
+            else bt5_5.setText("0");
+        }
+        if (v.getId() == R.id.bt5_6)
+        {
+            if (currentText56.equals("0")) bt5_6.setText("1");
+            else if (currentText56.equals("1")) bt5_6.setText("2");
+            else bt5_6.setText("0");
+        }
         if (v.getId() == R.id.bt5_7)
-            bt5_7.setText(currentText57.equals("0") ? "1" : "0");
-
+        {
+            if (currentText57.equals("0")) bt5_7.setText("1");
+            else if (currentText57.equals("1")) bt5_7.setText("2");
+            else bt5_7.setText("0");
+        }
         if (v.getId() == R.id.bt6_1)
-            bt6_1.setText(currentText61.equals("0") ? "1" : "0" );
+        {
+            if (currentText61.equals("0")) bt6_1.setText("1");
+            else if (currentText61.equals("1")) bt6_1.setText("2");
+            else bt6_1.setText("0");
+        }
         if (v.getId() == R.id.bt6_2)
-            bt6_2.setText(currentText62.equals("0") ? "1" : "0");
+        {
+            if (currentText62.equals("0")) bt6_2.setText("1");
+            else if (currentText62.equals("1")) bt6_2.setText("2");
+            else bt6_2.setText("0");
+        }
         if (v.getId() == R.id.bt6_3)
-            bt6_3.setText(currentText63.equals("0") ? "1" : "0");
+        {
+            if (currentText63.equals("0")) bt6_3.setText("1");
+            else if (currentText63.equals("1")) bt6_3.setText("2");
+            else bt6_3.setText("0");
+        }
         if (v.getId() == R.id.bt6_4)
-            bt6_4.setText(currentText64.equals("0") ? "1" : "0");
+        {
+            if (currentText64.equals("0")) bt6_4.setText("1");
+            else if (currentText64.equals("1")) bt6_4.setText("2");
+            else bt6_4.setText("0");
+        }
         if (v.getId() == R.id.bt6_5)
-            bt6_5.setText(currentText65.equals("0") ? "1" : "0");
+        {
+            if (currentText65.equals("0")) bt6_5.setText("1");
+            else if (currentText65.equals("1")) bt6_5.setText("2");
+            else bt6_5.setText("0");
+        }
+        if (v.getId() == R.id.bt6_6)
+        {
+            if (currentText66.equals("0")) bt6_6.setText("1");
+            else if (currentText66.equals("1")) bt6_6.setText("2");
+            else bt6_6.setText("0");
+        }
         if (v.getId() == R.id.bt6_7)
-            bt6_7.setText(currentText67.equals("0") ? "1" : "0");
+        {
+            if (currentText67.equals("0")) bt6_7.setText("1");
+            else if (currentText67.equals("1")) bt6_7.setText("2");
+            else bt6_7.setText("0");
+        }
 
         // String row1 = bt1_1.getText()+ bt1_2.getText()+bt1_3.getText()+bt1_4.getText()+bt1_5.getText();
         String row1 = bt1_1.getText().toString() + bt1_2.getText().toString() + bt1_3.getText().toString() + bt1_4.getText().toString() + bt1_5.getText().toString() + bt1_7.getText().toString();
@@ -461,7 +640,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
         String row4 = bt4_1.getText().toString() + bt4_2.getText().toString() + bt4_3.getText().toString() + bt4_4.getText().toString() + bt4_5.getText().toString() + bt4_7.getText().toString() ;
         String row5 = bt5_1.getText().toString() + bt5_2.getText().toString() + bt5_3.getText().toString() + bt5_4.getText().toString() + bt5_5.getText().toString() + bt5_7.getText().toString() ;
         String row6 = bt6_1.getText().toString() + bt6_2.getText().toString() + bt6_3.getText().toString() + bt6_4.getText().toString() + bt6_5.getText().toString() + bt6_7.getText().toString() ;
-        int dec1= Integer.parseInt(row1,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec1= Integer.parseInt(row1,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik=Integer.parseInt(bt1_6.getText().toString());
         if (dec1==wynik)
         {
@@ -483,7 +662,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
 
 
         }
-        int dec2= Integer.parseInt(row2,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec2= Integer.parseInt(row2,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik2=Integer.parseInt(bt2_6.getText().toString());
         if (dec2==wynik2)
         {
@@ -502,7 +681,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz2/2);
             bt2_6.setText("0");
         }
-        int dec3= Integer.parseInt(row3,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec3= Integer.parseInt(row3,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik3=Integer.parseInt(bt3_6.getText().toString());
         if (dec3==wynik3)
         {
@@ -521,7 +700,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz3/2);
             bt3_6.setText("0");
         }
-        int dec4= Integer.parseInt(row4,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec4= Integer.parseInt(row4,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik4=Integer.parseInt(bt4_6.getText().toString());
         if (dec4==wynik4)
         {
@@ -540,7 +719,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz4/2);
             bt4_6.setText("0");
         }
-        int dec5= Integer.parseInt(row5,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec5= Integer.parseInt(row5,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik5=Integer.parseInt(bt5_6.getText().toString());
         if (dec5==wynik5)
         {
@@ -560,7 +739,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
             bt5_6.setText("0");
 
         }
-        int dec6= Integer.parseInt(row6,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec6= Integer.parseInt(row6,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik6=Integer.parseInt(bt6_6.getText().toString());
         if (dec6==wynik6)
         {
@@ -587,7 +766,7 @@ public class Trudny extends AppCompatActivity implements View.OnClickListener {
                     , "Przechodzisz do następnego poziomu!", Toast.LENGTH_LONG).show();
 //            Intent intent = new Intent(Sredni.this, Sredni2.class);
 //            startActivity(intent);
-            Intent myIntent = new Intent(Trudny.this, Trudny2.class);
+            Intent myIntent = new Intent(Trudny3_2.this, Trudny3_3.class);
             myIntent.putExtra("Punkt", pkt);
             startActivity(myIntent);
         }

@@ -424,7 +424,7 @@
         android:background="@drawable/my_rectangle"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:text="Poziom 1"
+        android:text="Poziom 3"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -772,6 +772,20 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <TextView
+        android:id="@+id/home"
+        android:layout_width="296dp"
+        android:layout_height="119dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginBottom="448dp"
+        android:drawableTop="@drawable/menu"
+        android:onClick="onClick"
+        android:clickable="true"
+        android:scaleGravity="center_vertical|center_horizontal"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/punkt2"
@@ -780,7 +794,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:text="0"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

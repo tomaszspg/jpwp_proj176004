@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BinarnyEkspert">
-        <activity android:name=".Latwy3"></activity>
+        <activity android:name=".Trudny3_3"></activity>
+        <activity android:name=".Trudny3_2" />
+        <activity android:name=".Trudny3_1" />
+        <activity android:name=".Sredni3_3" />
+        <activity android:name=".Sredni3_2" />
+        <activity android:name=".Sredni3_1" />
+        <activity android:name=".Latwy3_3" />
+        <activity android:name=".Latwy3_2" />
+        <activity android:name=".Latwy3_1" />
+        <activity android:name=".Trudny3" />
+        <activity android:name=".Trudny2" />
+        <activity android:name=".Latwy3" />
         <activity android:name=".Latwy2" />
         <activity
             android:name=".Sredni3"

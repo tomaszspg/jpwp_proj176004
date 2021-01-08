@@ -16,7 +16,7 @@ import java.util.Locale;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Latwy extends AppCompatActivity implements View.OnClickListener {
+public class Sredni3_1 extends AppCompatActivity implements View.OnClickListener {
     private Switch switch1;
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6;
     private Button bt3_1, bt3_2, bt3_3, bt3_4, bt3_5, bt3_6, bt4_1, bt4_2, bt4_3, bt4_4, bt4_5, bt4_6;
@@ -28,13 +28,12 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
     int rz3=0;
     int rz4=0;
     int rz5=0;
-    int czas=4;
     boolean rz22;
     boolean rz33;
     boolean rz44;
     boolean rz55;
     boolean timerstop;
-    boolean temp1=false, temp2=false,temp3=false,temp4=false; //do jednokrotnego resetu timera
+    boolean temp1=false, temp2=false,temp3=false,temp4=false;
     String sDuration;
     int pktrz1=0, pktrz2=0, pktrz3=0, pktrz4=0, pktrz5=0;
 
@@ -47,7 +46,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_latwy);
+        setContentView(R.layout.activity_sredni3_1);
         switch1 = (Switch) findViewById(R.id.switch1);
         // licznik =0;
 
@@ -59,7 +58,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
 
 
 
-
+        TextView pod16 = findViewById(R.id.pod16);
         TextView podramka = findViewById(R.id.podramka);
         TextView pod8 = (TextView) findViewById(R.id.pod8);
         TextView pod4 = (TextView) findViewById(R.id.pod4);
@@ -69,45 +68,45 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
         bt1_2 = (Button) findViewById(R.id.bt1_2); bt1_2.setOnClickListener(this);
         bt1_3 = (Button) findViewById(R.id.bt1_3); bt1_3.setOnClickListener(this);
         bt1_4 = (Button) findViewById(R.id.bt1_4); bt1_4.setOnClickListener(this);
-
+        bt1_5 = (Button) findViewById(R.id.bt1_5); bt1_5.setOnClickListener(this);
         bt1_6 = (Button) findViewById(R.id.bt1_6); bt1_6.setOnClickListener(this);
         bt2_1 = (Button) findViewById(R.id.bt2_1); bt2_1.setOnClickListener(this);
         bt2_2 = (Button) findViewById(R.id.bt2_2); bt2_2.setOnClickListener(this);
         bt2_3 = (Button) findViewById(R.id.bt2_3); bt2_3.setOnClickListener(this);
         bt2_4 = (Button) findViewById(R.id.bt2_4); bt2_4.setOnClickListener(this);
-
+        bt2_5 = (Button) findViewById(R.id.bt2_5); bt2_5.setOnClickListener(this);
         bt2_6 = (Button) findViewById(R.id.bt2_6); bt2_6.setOnClickListener(this);
         bt3_1 = (Button) findViewById(R.id.bt3_1); bt3_1.setOnClickListener(this);
         bt3_2 = (Button) findViewById(R.id.bt3_2); bt3_2.setOnClickListener(this);
         bt3_3 = (Button) findViewById(R.id.bt3_3); bt3_3.setOnClickListener(this);
         bt3_4 = (Button) findViewById(R.id.bt3_4); bt3_4.setOnClickListener(this);
-
+        bt3_5 = (Button) findViewById(R.id.bt3_5); bt3_5.setOnClickListener(this);
         bt3_6 = (Button) findViewById(R.id.bt3_6); bt3_6.setOnClickListener(this);
         bt4_1 = (Button) findViewById(R.id.bt4_1); bt4_1.setOnClickListener(this);
         bt4_2 = (Button) findViewById(R.id.bt4_2); bt4_2.setOnClickListener(this);
         bt4_3 = (Button) findViewById(R.id.bt4_3); bt4_3.setOnClickListener(this);
         bt4_4 = (Button) findViewById(R.id.bt4_4); bt4_4.setOnClickListener(this);
-
+        bt4_5 = (Button) findViewById(R.id.bt4_5); bt4_5.setOnClickListener(this);
         bt4_6 = (Button) findViewById(R.id.bt4_6); bt4_6.setOnClickListener(this);
         bt5_1 = (Button) findViewById(R.id.bt5_1); bt5_1.setOnClickListener(this);
         bt5_2 = (Button) findViewById(R.id.bt5_2); bt5_2.setOnClickListener(this);
         bt5_3 = (Button) findViewById(R.id.bt5_3); bt5_3.setOnClickListener(this);
         bt5_4 = (Button) findViewById(R.id.bt5_4); bt5_4.setOnClickListener(this);
-
+        bt5_5 = (Button) findViewById(R.id.bt5_5); bt5_5.setOnClickListener(this);
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(8)+1)); //MAX 15
-        bt2_6.setText(Integer.toString(rand.nextInt(8)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(8)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(8)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(8)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(16)+1)); //MAX 31
+        bt2_6.setText(Integer.toString(rand.nextInt(16)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(16)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(16)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(16)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (switch1.isChecked())
                 {
                     podramka.setVisibility(View.VISIBLE);
-
+                    pod16.setVisibility(View.VISIBLE);
                     pod8.setVisibility(View.VISIBLE);
                     pod4.setVisibility(View.VISIBLE);
                     pod2.setVisibility(View.VISIBLE);
@@ -116,7 +115,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                 else
                 {
                     podramka.setVisibility(View.GONE);
-
+                    pod16.setVisibility(View.GONE);
                     pod8.setVisibility(View.GONE);
                     pod4.setVisibility(View.GONE);
                     pod2.setVisibility(View.GONE);
@@ -128,7 +127,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(czas);
+        long duration = TimeUnit.SECONDS.toMillis(10);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -143,7 +142,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     bt2_2.setVisibility(View.VISIBLE);
                     bt2_3.setVisibility(View.VISIBLE);
                     bt2_4.setVisibility(View.VISIBLE);
-
+                    bt2_5.setVisibility(View.VISIBLE);
                     bt2_6.setVisibility(View.VISIBLE);
                     if (rz3!=2) rz3=3;
                     if (temp1==false){
@@ -158,7 +157,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     bt3_2.setVisibility(View.VISIBLE);
                     bt3_3.setVisibility(View.VISIBLE);
                     bt3_4.setVisibility(View.VISIBLE);
-
+                    bt3_5.setVisibility(View.VISIBLE);
                     bt3_6.setVisibility(View.VISIBLE);
                     if (rz4!=2) rz4=3;
                     if (temp2==false){
@@ -173,7 +172,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     bt4_2.setVisibility(View.VISIBLE);
                     bt4_3.setVisibility(View.VISIBLE);
                     bt4_4.setVisibility(View.VISIBLE);
-
+                    bt4_5.setVisibility(View.VISIBLE);
                     bt4_6.setVisibility(View.VISIBLE);
                     if (rz5!=2) rz5=3;
                     if (temp3==false){
@@ -188,7 +187,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     bt5_2.setVisibility(View.VISIBLE);
                     bt5_3.setVisibility(View.VISIBLE);
                     bt5_4.setVisibility(View.VISIBLE);
-
+                    bt5_5.setVisibility(View.VISIBLE);
                     bt5_6.setVisibility(View.VISIBLE);
                     if (temp4==false){
                         this.cancel();
@@ -210,46 +209,46 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                 //  textView_timer.setVisibility(View.GONE);
 //                Toast.makeText(getApplicationContext()
 //                        , "Koniec czasu", Toast.LENGTH_LONG).show();
-                if (rz2==0) //drugi rzad startuje
+                if (rz2==0 & rz2!=2) //drugi rzad startuje
                 {
                     bt2_1.setVisibility(View.VISIBLE);
                     bt2_2.setVisibility(View.VISIBLE);
                     bt2_3.setVisibility(View.VISIBLE);
                     bt2_4.setVisibility(View.VISIBLE);
-
+                    bt2_5.setVisibility(View.VISIBLE);
                     bt2_6.setVisibility(View.VISIBLE);
                     rz22=true;
                     temp1=true;
                 }
-                if (rz3==3) //trzeci rzad startuje
+                if (rz3==3 & rz3!=2) //drugi rzad startuje
                 {
                     bt3_1.setVisibility(View.VISIBLE);
                     bt3_2.setVisibility(View.VISIBLE);
                     bt3_3.setVisibility(View.VISIBLE);
                     bt3_4.setVisibility(View.VISIBLE);
-
+                    bt3_5.setVisibility(View.VISIBLE);
                     bt3_6.setVisibility(View.VISIBLE);
                     rz33=true;
                     temp2=true;
                 }
-                if (rz4==3) //czwarty rzad startuje
+                if (rz4==3 & rz4!=2) //drugi rzad startuje
                 {
                     bt4_1.setVisibility(View.VISIBLE);
                     bt4_2.setVisibility(View.VISIBLE);
                     bt4_3.setVisibility(View.VISIBLE);
                     bt4_4.setVisibility(View.VISIBLE);
-
+                    bt4_5.setVisibility(View.VISIBLE);
                     bt4_6.setVisibility(View.VISIBLE);
                     rz44=true;
                     temp3=true;
                 }
-                if (rz5==3) //piaty rzad startuje
+                if (rz5==3 & rz5!=2) //drugi rzad startuje
                 {
                     bt5_1.setVisibility(View.VISIBLE);
                     bt5_2.setVisibility(View.VISIBLE);
                     bt5_3.setVisibility(View.VISIBLE);
                     bt5_4.setVisibility(View.VISIBLE);
-
+                    bt5_5.setVisibility(View.VISIBLE);
                     bt5_6.setVisibility(View.VISIBLE);
                     rz55=true;
                     temp4=true;
@@ -278,93 +277,194 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
         String currentText12 = bt1_2.getText().toString();
         String currentText13 = bt1_3.getText().toString();
         String currentText14 = bt1_4.getText().toString();
-
+        String currentText15 = bt1_5.getText().toString();
         String currentText16 = bt1_6.getText().toString();
 
         String currentText21 = bt2_1.getText().toString();
         String currentText22 = bt2_2.getText().toString();
         String currentText23 = bt2_3.getText().toString();
         String currentText24 = bt2_4.getText().toString();
-
+        String currentText25 = bt2_5.getText().toString();
         String currentText26 = bt2_6.getText().toString();
 
         String currentText31 = bt3_1.getText().toString();
         String currentText32 = bt3_2.getText().toString();
         String currentText33 = bt3_3.getText().toString();
         String currentText34 = bt3_4.getText().toString();
-
+        String currentText35 = bt3_5.getText().toString();
         String currentText36 = bt3_6.getText().toString();
 
         String currentText41 = bt4_1.getText().toString();
         String currentText42 = bt4_2.getText().toString();
         String currentText43 = bt4_3.getText().toString();
         String currentText44 = bt4_4.getText().toString();
-
+        String currentText45 = bt4_5.getText().toString();
         String currentText46 = bt4_6.getText().toString();
 
         String currentText51 = bt5_1.getText().toString();
         String currentText52 = bt5_2.getText().toString();
         String currentText53 = bt5_3.getText().toString();
         String currentText54 = bt5_4.getText().toString();
-
+        String currentText55 = bt5_5.getText().toString();
         String currentText56 = bt5_6.getText().toString();
         //   bt1_6.setText(random);
         if (v.getId() == R.id.bt1_1)
-            bt1_1.setText(currentText11.equals("0") ? "1" : "0" );
+        {
+            if (currentText11.equals("0")) bt1_1.setText("1");
+            else if (currentText11.equals("1")) bt1_1.setText("2");
+            else bt1_1.setText("0");
+        }
         if (v.getId() == R.id.bt1_2)
-            bt1_2.setText(currentText12.equals("0") ? "1" : "0");
+        {
+            if (currentText12.equals("0")) bt1_2.setText("1");
+            else if (currentText12.equals("1")) bt1_2.setText("2");
+            else bt1_2.setText("0");
+        }
         if (v.getId() == R.id.bt1_3)
-            bt1_3.setText(currentText13.equals("0") ? "1" : "0");
+        {
+            if (currentText13.equals("0")) bt1_3.setText("1");
+            else if (currentText13.equals("1")) bt1_3.setText("2");
+            else bt1_3.setText("0");
+        }
         if (v.getId() == R.id.bt1_4)
-            bt1_4.setText(currentText14.equals("0") ? "1" : "0");
-
-
+        {
+            if (currentText14.equals("0")) bt1_4.setText("1");
+            else if (currentText14.equals("1")) bt1_4.setText("2");
+            else bt1_4.setText("0");
+        }
+        if (v.getId() == R.id.bt1_5)
+        {
+            if (currentText15.equals("0")) bt1_5.setText("1");
+            else if (currentText15.equals("1")) bt1_5.setText("2");
+            else bt1_5.setText("0");
+        }
         if (v.getId() == R.id.bt2_1)
-            bt2_1.setText(currentText21.equals("0") ? "1" : "0" );
+        {
+            if (currentText21.equals("0")) bt2_1.setText("1");
+            else if (currentText21.equals("1")) bt2_1.setText("2");
+            else bt2_1.setText("0");
+        }
         if (v.getId() == R.id.bt2_2)
-            bt2_2.setText(currentText22.equals("0") ? "1" : "0");
+        {
+            if (currentText22.equals("0")) bt2_2.setText("1");
+            else if (currentText22.equals("1")) bt2_2.setText("2");
+            else bt2_2.setText("0");
+        }
         if (v.getId() == R.id.bt2_3)
-            bt2_3.setText(currentText23.equals("0") ? "1" : "0");
+        {
+            if (currentText23.equals("0")) bt2_3.setText("1");
+            else if (currentText23.equals("1")) bt2_3.setText("2");
+            else bt2_3.setText("0");
+        }
         if (v.getId() == R.id.bt2_4)
-            bt2_4.setText(currentText24.equals("0") ? "1" : "0");
-
-
+        {
+            if (currentText24.equals("0")) bt2_4.setText("1");
+            else if (currentText24.equals("1")) bt2_4.setText("2");
+            else bt2_4.setText("0");
+        }
+        if (v.getId() == R.id.bt2_5)
+        {
+            if (currentText25.equals("0")) bt2_5.setText("1");
+            else if (currentText25.equals("1")) bt2_5.setText("2");
+            else bt2_5.setText("0");
+        }
         if (v.getId() == R.id.bt3_1)
-            bt3_1.setText(currentText31.equals("0") ? "1" : "0" );
+        {
+            if (currentText31.equals("0")) bt3_1.setText("1");
+            else if (currentText31.equals("1")) bt3_1.setText("2");
+            else bt3_1.setText("0");
+        }
         if (v.getId() == R.id.bt3_2)
-            bt3_2.setText(currentText32.equals("0") ? "1" : "0");
+        {
+            if (currentText32.equals("0")) bt3_2.setText("1");
+            else if (currentText32.equals("1")) bt3_2.setText("2");
+            else bt3_2.setText("0");
+        }
         if (v.getId() == R.id.bt3_3)
-            bt3_3.setText(currentText33.equals("0") ? "1" : "0");
+        {
+            if (currentText33.equals("0")) bt3_3.setText("1");
+            else if (currentText33.equals("1")) bt3_3.setText("2");
+            else bt3_3.setText("0");
+        }
         if (v.getId() == R.id.bt3_4)
-            bt3_4.setText(currentText34.equals("0") ? "1" : "0");
-
-
+        {
+            if (currentText34.equals("0")) bt3_4.setText("1");
+            else if (currentText34.equals("1")) bt3_4.setText("2");
+            else bt3_4.setText("0");
+        }
+        if (v.getId() == R.id.bt3_5)
+        {
+            if (currentText35.equals("0")) bt3_5.setText("1");
+            else if (currentText35.equals("1")) bt3_5.setText("2");
+            else bt3_5.setText("0");
+        }
         if (v.getId() == R.id.bt4_1)
-            bt4_1.setText(currentText41.equals("0") ? "1" : "0" );
+        {
+            if (currentText41.equals("0")) bt4_1.setText("1");
+            else if (currentText41.equals("1")) bt4_1.setText("2");
+            else bt4_1.setText("0");
+        }
         if (v.getId() == R.id.bt4_2)
-            bt4_2.setText(currentText42.equals("0") ? "1" : "0");
+        {
+            if (currentText42.equals("0")) bt4_2.setText("1");
+            else if (currentText42.equals("1")) bt4_2.setText("2");
+            else bt4_2.setText("0");
+        }
         if (v.getId() == R.id.bt4_3)
-            bt4_3.setText(currentText43.equals("0") ? "1" : "0");
+        {
+            if (currentText43.equals("0")) bt4_3.setText("1");
+            else if (currentText43.equals("1")) bt4_3.setText("2");
+            else bt4_3.setText("0");
+        }
         if (v.getId() == R.id.bt4_4)
-            bt4_4.setText(currentText44.equals("0") ? "1" : "0");
-
-
+        {
+            if (currentText44.equals("0")) bt4_4.setText("1");
+            else if (currentText44.equals("1")) bt4_4.setText("2");
+            else bt4_4.setText("0");
+        }
+        if (v.getId() == R.id.bt4_5)
+        {
+            if (currentText45.equals("0")) bt4_5.setText("1");
+            else if (currentText45.equals("1")) bt4_5.setText("2");
+            else bt4_5.setText("0");
+        }
         if (v.getId() == R.id.bt5_1)
-            bt5_1.setText(currentText51.equals("0") ? "1" : "0" );
+        {
+            if (currentText51.equals("0")) bt5_1.setText("1");
+            else if (currentText51.equals("1")) bt5_1.setText("2");
+            else bt5_1.setText("0");
+        }
         if (v.getId() == R.id.bt5_2)
-            bt5_2.setText(currentText52.equals("0") ? "1" : "0");
+        {
+            if (currentText52.equals("0")) bt5_2.setText("1");
+            else if (currentText52.equals("1")) bt5_2.setText("2");
+            else bt5_2.setText("0");
+        }
         if (v.getId() == R.id.bt5_3)
-            bt5_3.setText(currentText53.equals("0") ? "1" : "0");
+        {
+            if (currentText53.equals("0")) bt5_3.setText("1");
+            else if (currentText53.equals("1")) bt5_3.setText("2");
+            else bt5_3.setText("0");
+        }
         if (v.getId() == R.id.bt5_4)
-            bt5_4.setText(currentText54.equals("0") ? "1" : "0");
-
+        {
+            if (currentText54.equals("0")) bt5_4.setText("1");
+            else if (currentText54.equals("1")) bt5_4.setText("2");
+            else bt5_4.setText("0");
+        }
+        if (v.getId() == R.id.bt5_5)
+        {
+            if (currentText55.equals("0")) bt5_5.setText("1");
+            else if (currentText55.equals("1")) bt5_5.setText("2");
+            else bt5_5.setText("0");
+        }
         // String row1 = bt1_1.getText()+ bt1_2.getText()+bt1_3.getText()+bt1_4.getText()+bt1_5.getText();
-        String row1 = bt1_1.getText().toString() + bt1_2.getText().toString() + bt1_3.getText().toString() + bt1_4.getText().toString()  ;
-        String row2 = bt2_1.getText().toString() + bt2_2.getText().toString() + bt2_3.getText().toString() + bt2_4.getText().toString()  ;
-        String row3 = bt3_1.getText().toString() + bt3_2.getText().toString() + bt3_3.getText().toString() + bt3_4.getText().toString()  ;
-        String row4 = bt4_1.getText().toString() + bt4_2.getText().toString() + bt4_3.getText().toString() + bt4_4.getText().toString()  ;
-        String row5 = bt5_1.getText().toString() + bt5_2.getText().toString() + bt5_3.getText().toString() + bt5_4.getText().toString()  ;
-        int dec1= Integer.parseInt(row1,2); //2 - system dwojkowy, 3- system trojkowy itp
+        String row1 = bt1_1.getText().toString() + bt1_2.getText().toString() + bt1_3.getText().toString() + bt1_4.getText().toString() + bt1_5.getText().toString() ;
+        String row2 = bt2_1.getText().toString() + bt2_2.getText().toString() + bt2_3.getText().toString() + bt2_4.getText().toString() + bt2_5.getText().toString() ;
+        String row3 = bt3_1.getText().toString() + bt3_2.getText().toString() + bt3_3.getText().toString() + bt3_4.getText().toString() + bt3_5.getText().toString() ;
+        String row4 = bt4_1.getText().toString() + bt4_2.getText().toString() + bt4_3.getText().toString() + bt4_4.getText().toString() + bt4_5.getText().toString() ;
+        String row5 = bt5_1.getText().toString() + bt5_2.getText().toString() + bt5_3.getText().toString() + bt5_4.getText().toString() + bt5_5.getText().toString() ;
+        int dec1= Integer.parseInt(row1,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik=Integer.parseInt(bt1_6.getText().toString());
         if (dec1==wynik)
         {
@@ -374,7 +474,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt1_2.setVisibility(View.INVISIBLE);
             bt1_3.setVisibility(View.INVISIBLE);
             bt1_4.setVisibility(View.INVISIBLE);
-
+            bt1_5.setVisibility(View.INVISIBLE);
             bt1_6.setVisibility(View.INVISIBLE);
             rz1=2;
             if (rz2!=2) rz2=1;
@@ -385,7 +485,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
 
 
         }
-        int dec2= Integer.parseInt(row2,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec2= Integer.parseInt(row2,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik2=Integer.parseInt(bt2_6.getText().toString());
         if (dec2==wynik2)
         {
@@ -395,7 +495,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt2_2.setVisibility(View.INVISIBLE);
             bt2_3.setVisibility(View.INVISIBLE);
             bt2_4.setVisibility(View.INVISIBLE);
-
+            bt2_5.setVisibility(View.INVISIBLE);
             bt2_6.setVisibility(View.INVISIBLE);
             licznik++;
             rz2=2;
@@ -403,7 +503,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz2/2);
             bt2_6.setText("0");
         }
-        int dec3= Integer.parseInt(row3,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec3= Integer.parseInt(row3,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik3=Integer.parseInt(bt3_6.getText().toString());
         if (dec3==wynik3)
         {
@@ -413,7 +513,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt3_2.setVisibility(View.INVISIBLE);
             bt3_3.setVisibility(View.INVISIBLE);
             bt3_4.setVisibility(View.INVISIBLE);
-
+            bt3_5.setVisibility(View.INVISIBLE);
             bt3_6.setVisibility(View.INVISIBLE);
             licznik++;
             rz3=2;
@@ -421,7 +521,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz3/2);
             bt3_6.setText("0");
         }
-        int dec4= Integer.parseInt(row4,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec4= Integer.parseInt(row4,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik4=Integer.parseInt(bt4_6.getText().toString());
         if (dec4==wynik4)
         {
@@ -431,7 +531,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt4_2.setVisibility(View.INVISIBLE);
             bt4_3.setVisibility(View.INVISIBLE);
             bt4_4.setVisibility(View.INVISIBLE);
-
+            bt4_5.setVisibility(View.INVISIBLE);
             bt4_6.setVisibility(View.INVISIBLE);
             licznik++;
             rz4=2;
@@ -439,7 +539,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             pkt+= 11-(pktrz4/2);
             bt4_6.setText("0");
         }
-        int dec5= Integer.parseInt(row5,2); //2 - system dwojkowy, 3- system trojkowy itp
+        int dec5= Integer.parseInt(row5,3); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik5=Integer.parseInt(bt5_6.getText().toString());
         if (dec5==wynik5)
         {
@@ -449,7 +549,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt5_2.setVisibility(View.INVISIBLE);
             bt5_3.setVisibility(View.INVISIBLE);
             bt5_4.setVisibility(View.INVISIBLE);
-
+            bt5_5.setVisibility(View.INVISIBLE);
             bt5_6.setVisibility(View.INVISIBLE);
             licznik++;
             rz5=2;
@@ -465,7 +565,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     , "Przechodzisz do następnego poziomu!", Toast.LENGTH_LONG).show();
 //            Intent intent = new Intent(Sredni.this, Sredni2.class);
 //            startActivity(intent);
-            Intent myIntent = new Intent(Latwy.this, Latwy2.class);
+            Intent myIntent = new Intent(Sredni3_1.this, Sredni3_2.class);
             myIntent.putExtra("Punkt", pkt);
             startActivity(myIntent);
         }
