@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
@@ -48,6 +50,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
     boolean temp1=false, temp2=false,temp3=false,temp4=false;
     String sDuration;
     int pktrz1=0, pktrz2=0, pktrz3=0, pktrz4=0, pktrz5=0;
+    boolean temp =false;
 
 
     TextView textView_timer;
@@ -118,7 +121,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
 
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(15)+1)); //MAX 31
+        bt1_6.setText(Integer.toString(rand.nextInt(15)+1)); //MAX 15
         bt2_6.setText(Integer.toString(rand.nextInt(15)+1));
         bt3_6.setText(Integer.toString(rand.nextInt(15)+1));
         bt4_6.setText(Integer.toString(rand.nextInt(15)+1));
@@ -152,7 +155,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(10);
+        long duration = TimeUnit.SECONDS.toMillis(5);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -493,6 +496,38 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         punkt.setText(String.valueOf(pkt));
         if (licznik==5)
         {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pktl1 = sp.getInt("pktl1", 0);
+                int pktl2 = sp.getInt("pktl2", 0);
+                int pktl3 = sp.getInt("pktl3", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pktl1 < pkt) //mamy rekord
+                {
+                    pktl3 = pktl2;
+                    pktl2 = pktl1;
+                    editor.putInt("pktl1", pkt);
+                    editor.putInt("pktl2", pktl2);
+                    editor.putInt("pktl3", pktl3);
+
+                } else {
+                    if (pktl2 < pkt) //rekord zapisany do nr 2
+                    {
+                        pktl3 = pktl2;
+                        editor.putInt("pktl2", pkt);
+                        editor.putInt("pktl3", pktl3);
+                    } else {
+                        if (pktl3 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pktl3", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
+
             Toast.makeText(getApplicationContext()
                     , "Ukończono łatwy etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

@@ -23,7 +23,7 @@ public class Trudny3_1 extends AppCompatActivity implements View.OnClickListener
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6, bt5_7, bt6_1, bt6_2, bt6_3, bt6_4, bt6_5, bt6_6, bt6_7;
     int licznik=0;
     int pkt=0;
-    int czas=4;
+    int czas=10;
     int rz1=0; //0 - startuje, 2- zrobiony 1- poprzedni rzad zrobiony wiec w gotowosci
     int rz2=0;
     int rz3=0;
@@ -110,12 +110,12 @@ public class Trudny3_1 extends AppCompatActivity implements View.OnClickListener
         bt6_6 = (Button) findViewById(R.id.bt6_6); bt6_6.setOnClickListener(this);
         bt6_7 = (Button) findViewById(R.id.bt6_7); bt6_7.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(9)+1)); //MAX 31
-        bt2_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt6_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(243)+1)); //MAX 728
+        bt2_6.setText(Integer.toString(rand.nextInt(243)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(243)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(243)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(243)+1));
+        bt6_6.setText(Integer.toString(rand.nextInt(243)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

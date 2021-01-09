@@ -2,7 +2,9 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -30,7 +32,8 @@ public class Latwy3_3 extends AppCompatActivity implements View.OnClickListener 
     int rz3=0;
     int rz4=0;
     int rz5=0;
-    int czas=4;
+    int czas=7;
+    boolean temp =false;
     boolean rz22;
     boolean rz33;
     boolean rz44;
@@ -102,11 +105,11 @@ public class Latwy3_3 extends AppCompatActivity implements View.OnClickListener 
 
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(40)+1)); //MAX 15
-        bt2_6.setText(Integer.toString(rand.nextInt(40)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(40)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(40)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(40)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(80)+1)); //MAX 80
+        bt2_6.setText(Integer.toString(rand.nextInt(80)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(80)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(80)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(80)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -545,6 +548,40 @@ public class Latwy3_3 extends AppCompatActivity implements View.OnClickListener 
         }
         punkt.setText(String.valueOf(pkt));
         if (licznik==5) {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pktl31 = sp.getInt("pktl31", 0);
+                int pktl32 = sp.getInt("pktl32", 0);
+                int pktl33 = sp.getInt("pktl33", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pktl31 < pkt) //mamy rekord
+                {
+                    pktl33 = pktl32;
+                    pktl32 = pktl31;
+                    editor.putInt("pktl31", pkt);
+                    editor.putInt("pktl32", pktl32);
+                    editor.putInt("pktl33", pktl33);
+
+                } else {
+                    if (pktl32 < pkt) //rekord zapisany do nr 2
+                    {
+                        pktl33 = pktl32;
+                        editor.putInt("pktl32", pkt);
+                        editor.putInt("pktl33", pktl33);
+                    } else {
+                        if (pktl33 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pktl33", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
+
+
+
             Toast.makeText(getApplicationContext()
                     , "Ukończono łatwy etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

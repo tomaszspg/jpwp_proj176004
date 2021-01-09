@@ -148,7 +148,7 @@ public class Trudny2 extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(5);
+        long duration = TimeUnit.SECONDS.toMillis(8);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {

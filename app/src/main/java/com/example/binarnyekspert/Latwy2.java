@@ -131,7 +131,7 @@ public class Latwy2 extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(10);
+        long duration = TimeUnit.SECONDS.toMillis(7);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {

@@ -2,7 +2,9 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -38,6 +40,7 @@ public class Sredni3_3 extends AppCompatActivity implements View.OnClickListener
     boolean temp1=false, temp2=false,temp3=false,temp4=false;
     String sDuration;
     int pktrz1=0, pktrz2=0, pktrz3=0, pktrz4=0, pktrz5=0;
+    boolean temp =false;
 
 
     TextView textView_timer;
@@ -104,11 +107,11 @@ public class Sredni3_3 extends AppCompatActivity implements View.OnClickListener
         bt5_5 = (Button) findViewById(R.id.bt5_5); bt5_5.setOnClickListener(this);
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(16)+1)); //MAX 31
-        bt2_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(16)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(242)+1)); //MAX 242
+        bt2_6.setText(Integer.toString(rand.nextInt(242)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(242)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(242)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(242)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -136,7 +139,7 @@ public class Sredni3_3 extends AppCompatActivity implements View.OnClickListener
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(10);
+        long duration = TimeUnit.SECONDS.toMillis(8);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -577,6 +580,38 @@ public class Sredni3_3 extends AppCompatActivity implements View.OnClickListener
         punkt.setText(String.valueOf(pkt));
         if (licznik==5)
         {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pkts31 = sp.getInt("pkts31", 0);
+                int pkts32 = sp.getInt("pkts32", 0);
+                int pkts33 = sp.getInt("pkts33", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pkts31 < pkt) //mamy rekord
+                {
+                    pkts33 = pkts32;
+                    pkts32 = pkts31;
+                    editor.putInt("pkts31", pkt);
+                    editor.putInt("pkts32", pkts32);
+                    editor.putInt("pkts33", pkts33);
+
+                } else {
+                    if (pkts32 < pkt) //rekord zapisany do nr 2
+                    {
+                        pkts33 = pkts32;
+                        editor.putInt("pkts32", pkt);
+                        editor.putInt("pkts33", pkts33);
+                    } else {
+                        if (pkts33 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pkts33", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
+
             Toast.makeText(getApplicationContext()
                     , "Ukończono łatwy etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

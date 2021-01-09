@@ -95,11 +95,11 @@ public class Sredni3_1 extends AppCompatActivity implements View.OnClickListener
         bt5_5 = (Button) findViewById(R.id.bt5_5); bt5_5.setOnClickListener(this);
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(16)+1)); //MAX 31
-        bt2_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(16)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(16)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(81)+1)); //MAX 242
+        bt2_6.setText(Integer.toString(rand.nextInt(81)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(81)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(81)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(81)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

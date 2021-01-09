@@ -2,7 +2,9 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -25,6 +27,7 @@ public class Sredni3 extends AppCompatActivity implements View.OnClickListener {
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6;
     int licznik=0;
     int pkt;
+    boolean temp =false;
 //    Bundle exBundle= getIntent().getExtras();
 //    int intValue= exBundle.getInt("intValue");
 
@@ -144,7 +147,7 @@ public class Sredni3 extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(10);
+        long duration = TimeUnit.SECONDS.toMillis(5);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -488,6 +491,39 @@ public class Sredni3 extends AppCompatActivity implements View.OnClickListener {
         }
         if (licznik==5)
         {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pkts1 = sp.getInt("pkts1", 0);
+                int pkts2 = sp.getInt("pkts2", 0);
+                int pkts3 = sp.getInt("pkts3", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pkts1 < pkt) //mamy rekord
+                {
+                    pkts3 = pkts2;
+                    pkts2 = pkts1;
+                    editor.putInt("pkts1", pkt);
+                    editor.putInt("pkts2", pkts2);
+                    editor.putInt("pkts3", pkts3);
+
+                } else {
+                    if (pkts2 < pkt) //rekord zapisany do nr 2
+                    {
+                        pkts3 = pkts2;
+                        editor.putInt("pkts2", pkt);
+                        editor.putInt("pkts3", pkts3);
+                    } else {
+                        if (pkts3 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pkts3", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
+
+
             Toast.makeText(getApplicationContext()
                     , "Ukończono średni etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

@@ -2,7 +2,9 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -31,6 +33,7 @@ public class Trudny3 extends AppCompatActivity implements View.OnClickListener {
     int rz4=0;
     int rz5=0;
     int rz6=0;
+    boolean temp =false;
     boolean rz22;
     boolean rz33;
     boolean rz44;
@@ -155,7 +158,7 @@ public class Trudny3 extends AppCompatActivity implements View.OnClickListener {
 
 
         textView_timer = findViewById(R.id.text_view);
-        long duration = TimeUnit.SECONDS.toMillis(5);
+        long duration = TimeUnit.SECONDS.toMillis(6);
         new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -600,6 +603,39 @@ public class Trudny3 extends AppCompatActivity implements View.OnClickListener {
         punkt.setText(String.valueOf(pkt));
         if (licznik==6)
         {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pktt1 = sp.getInt("pktt1", 0);
+                int pktt2 = sp.getInt("pktt2", 0);
+                int pktt3 = sp.getInt("pktt3", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pktt1 < pkt) //mamy rekord
+                {
+                    pktt3 = pktt2;
+                    pktt2 = pktt1;
+                    editor.putInt("pktt1", pkt);
+                    editor.putInt("pktt2", pktt2);
+                    editor.putInt("pktt3", pktt3);
+
+                } else {
+                    if (pktt2 < pkt) //rekord zapisany do nr 2
+                    {
+                        pktt3 = pktt2;
+                        editor.putInt("pktt2", pkt);
+                        editor.putInt("pktt3", pktt3);
+                    } else {
+                        if (pktt3 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pktt3", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
+
+
             Toast.makeText(getApplicationContext()
                     , "Ukończono trudny etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

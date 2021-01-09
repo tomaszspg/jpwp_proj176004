@@ -28,7 +28,7 @@ public class Latwy3_1 extends AppCompatActivity implements View.OnClickListener 
     int rz3=0;
     int rz4=0;
     int rz5=0;
-    int czas=4;
+    int czas=10;
     boolean rz22;
     boolean rz33;
     boolean rz44;
@@ -96,11 +96,11 @@ public class Latwy3_1 extends AppCompatActivity implements View.OnClickListener 
 
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(15)+1)); //MAX 15
-        bt2_6.setText(Integer.toString(rand.nextInt(15)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(15)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(15)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(15)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(27)+1)); //MAX 80
+        bt2_6.setText(Integer.toString(rand.nextInt(27)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(27)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(27)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(27)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

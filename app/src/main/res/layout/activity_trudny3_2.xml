@@ -67,7 +67,7 @@
 
     <Button
         android:id="@+id/bt3_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -81,7 +81,7 @@
 
     <Button
         android:id="@+id/bt4_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -95,7 +95,7 @@
 
     <Button
         android:id="@+id/bt5_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -109,7 +109,7 @@
 
     <Button
         android:id="@+id/bt6_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -586,7 +586,7 @@
 
     <Button
         android:id="@+id/bt2_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -600,7 +600,7 @@
 
     <Button
         android:id="@+id/bt1_6"
-        android:layout_width="55dp"
+        android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"

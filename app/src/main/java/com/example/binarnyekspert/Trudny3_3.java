@@ -2,7 +2,9 @@ package com.example.binarnyekspert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -25,13 +27,14 @@ public class Trudny3_3 extends AppCompatActivity implements View.OnClickListener
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6, bt5_7, bt6_1, bt6_2, bt6_3, bt6_4, bt6_5, bt6_6, bt6_7;
     int licznik=0;
     int pkt=0;
-    int czas=4;
+    int czas=8;
     int rz1=0; //0 - startuje, 2- zrobiony 1- poprzedni rzad zrobiony wiec w gotowosci
     int rz2=0;
     int rz3=0;
     int rz4=0;
     int rz5=0;
     int rz6=0;
+    boolean temp =false;
     boolean rz22;
     boolean rz33;
     boolean rz44;
@@ -121,12 +124,12 @@ public class Trudny3_3 extends AppCompatActivity implements View.OnClickListener
         bt6_6 = (Button) findViewById(R.id.bt6_6); bt6_6.setOnClickListener(this);
         bt6_7 = (Button) findViewById(R.id.bt6_7); bt6_7.setOnClickListener(this);
         Random rand = new Random();
-        bt1_6.setText(Integer.toString(rand.nextInt(9)+1)); //MAX 31
-        bt2_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt3_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt4_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt5_6.setText(Integer.toString(rand.nextInt(9)+1));
-        bt6_6.setText(Integer.toString(rand.nextInt(9)+1));
+        bt1_6.setText(Integer.toString(rand.nextInt(728)+1)); //MAX 728
+        bt2_6.setText(Integer.toString(rand.nextInt(728)+1));
+        bt3_6.setText(Integer.toString(rand.nextInt(728)+1));
+        bt4_6.setText(Integer.toString(rand.nextInt(728)+1));
+        bt5_6.setText(Integer.toString(rand.nextInt(728)+1));
+        bt6_6.setText(Integer.toString(rand.nextInt(728)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -776,6 +779,37 @@ public class Trudny3_3 extends AppCompatActivity implements View.OnClickListener
         punkt.setText(String.valueOf(pkt));
         if (licznik==6)
         {
+            if (temp==false) {
+                SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+                int pktt31 = sp.getInt("pktt31", 0);
+                int pktt32 = sp.getInt("pktt32", 0);
+                int pktt33 = sp.getInt("pktt33", 0);
+                SharedPreferences.Editor editor = sp.edit();
+                if (pktt31 < pkt) //mamy rekord
+                {
+                    pktt33 = pktt32;
+                    pktt32 = pktt31;
+                    editor.putInt("pktt31", pkt);
+                    editor.putInt("pktt32", pktt32);
+                    editor.putInt("pktt33", pktt33);
+
+                } else {
+                    if (pktt32 < pkt) //rekord zapisany do nr 2
+                    {
+                        pktt33 = pktt32;
+                        editor.putInt("pktt32", pkt);
+                        editor.putInt("pktt33", pktt33);
+                    } else {
+                        if (pktt33 < pkt) //rekord zapisany do nr 3
+                        {
+                            editor.putInt("pktt33", pkt);
+                        }
+                    }
+                }
+
+                editor.commit();
+                temp=true;
+            }
             Toast.makeText(getApplicationContext()
                     , "Ukończono trudny etap!", Toast.LENGTH_LONG).show();
             home.setVisibility(View.VISIBLE);

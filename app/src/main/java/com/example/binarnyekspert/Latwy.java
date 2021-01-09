@@ -28,7 +28,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
     int rz3=0;
     int rz4=0;
     int rz5=0;
-    int czas=4;
+    int czas=10;
     boolean rz22;
     boolean rz33;
     boolean rz44;
