@@ -13,7 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-
+/** Klasa wyświetlająca rekordy punktacji zebranych z gier na wszystkich poziomach i systemach liczbowych  */
 public class Ranking extends AppCompatActivity implements View.OnClickListener {
     TextView l1,l2,l3,s1,s2,s3,t1,t2,t3,l31,l32,l33,s31,s32,s33,t31,t32,t33;
     Switch reset;
@@ -54,12 +54,13 @@ public class Ranking extends AppCompatActivity implements View.OnClickListener {
         t32 = (TextView)findViewById(R.id.t32);
         t33 = (TextView)findViewById(R.id.t33);
 
-
+/** powrót do menu  */
         powrot.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, MainActivity.class);
             startActivity(intent1);
         });
         SharedPreferences sp = getSharedPreferences("ranking", Activity.MODE_PRIVATE);
+        /** pobranie wartości z SharedPreferences  */
         pktl1 = sp.getInt("pktl1", 0);
         pktl2 = sp.getInt("pktl2", 0);
         pktl3 = sp.getInt("pktl3", 0);
@@ -78,7 +79,7 @@ public class Ranking extends AppCompatActivity implements View.OnClickListener {
         pktt31 = sp.getInt("pktt31", 0);
         pktt32 = sp.getInt("pktt32", 0);
         pktt33 = sp.getInt("pktt33", 0);
-
+        /** wyświetlenie pobranych wartości na ekranie  */
         l1.setText(String.valueOf(pktl1));
         l2.setText(String.valueOf(pktl2));
         l3.setText(String.valueOf(pktl3));
@@ -100,6 +101,7 @@ public class Ranking extends AppCompatActivity implements View.OnClickListener {
         t33.setText(String.valueOf(pktt33));
 
         reset.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            /** funkcja wyświetlająca przycisk służący do resetowania rekordów  */
             public void onCheckedChanged(CompoundButton reset, boolean isChecked) {
                 if (reset.isChecked())
                 {
@@ -122,7 +124,7 @@ public class Ranking extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
+    /** funkcja resetująca rekordy po wciśnięciu guzika  */
     public void onClick(View v) {
         if (v.getId() == R.id.resetbtn)
         {

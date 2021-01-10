@@ -3,6 +3,7 @@ package com.example.binarnyekspert;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -15,35 +16,48 @@ import android.widget.Toast;
 import java.util.Locale;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Klasa poziomu 1 trybu łatwego binarnego, zawiera całą mechanikę gry
+ * przekazuje zmienną z punktami do kolejnej aktywności poziomu 2*/
 public class Latwy extends AppCompatActivity implements View.OnClickListener {
+    /**  przełącznik wykorzystany do włączania i wyłączania podpowiedzi  */
     private Switch switch1;
+    /**  deklaracja przycisków używanych w grze  */
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6;
     private Button bt3_1, bt3_2, bt3_3, bt3_4, bt3_5, bt3_6, bt4_1, bt4_2, bt4_3, bt4_4, bt4_5, bt4_6;
     private Button bt5_1, bt5_2, bt5_3, bt5_4, bt5_5, bt5_6;
+    /**  licznik sprawdzający kiedy ma nastąpić koniec gry  */
     int licznik=0;
+    /**  zmienne przechowujące dane o punktach przyznanych za każdy poprawnie stworzony binarnie rząd  */
     int pkt=0;
+    /**  status każdego rzędu zależny od tych zmiennych  */
     int rz1=0; //0 - startuje, 2- zrobiony 1- poprzedni rzad zrobiony wiec w gotowosci
     int rz2=0;
     int rz3=0;
     int rz4=0;
     int rz5=0;
+    /**  ile czasu na pojawienie się rzędu  */
     int czas=10;
+    /**  używane do określania statusu kolejnego rzędu  */
     boolean rz22;
     boolean rz33;
     boolean rz44;
     boolean rz55;
+    /**  użyte do resetu timera po pojawieniu się nowego rzędu  */
     boolean timerstop;
     boolean temp1=false, temp2=false,temp3=false,temp4=false; //do jednokrotnego resetu timera
+    /**  użyte w timerze  */
     String sDuration;
+    /** punkty przyznane na podstawie pozostalego czasu za wykonanie danego rzędu   */
     int pktrz1=0, pktrz2=0, pktrz3=0, pktrz4=0, pktrz5=0;
 
-
+    /**  timer odliczający czas  */
     TextView textView_timer;
+    /**  textview z aktualną punktacją  */
     TextView punkt, punkt2;
 
 
-
+    /**  tworzone są przyciski, dostają onClickListenera i przycisk odpowiadający za wartość szukaną dostaje losową liczbę  */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +73,9 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
 
 
 
-
+        /**  podramka wyswietla ramke wokol podpowiedzi numerycznych  */
         TextView podramka = findViewById(R.id.podramka);
+        /** wyświetlają numeryczne podpowiedzi odpowiadające kolumnom powyżej   */
         TextView pod8 = (TextView) findViewById(R.id.pod8);
         TextView pod4 = (TextView) findViewById(R.id.pod4);
         TextView pod2 = (TextView) findViewById(R.id.pod2);
@@ -95,6 +110,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
         bt5_4 = (Button) findViewById(R.id.bt5_4); bt5_4.setOnClickListener(this);
 
         bt5_6 = (Button) findViewById(R.id.bt5_6); bt5_6.setOnClickListener(this);
+        /**  losowe przypisanie wartości do ostatniego guziku w rzędzie  */
         Random rand = new Random();
         bt1_6.setText(Integer.toString(rand.nextInt(8)+1)); //MAX 15
         bt2_6.setText(Integer.toString(rand.nextInt(8)+1));
@@ -103,6 +119,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
         bt5_6.setText(Integer.toString(rand.nextInt(8)+1));
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            /**   jeśli switch przełączony to pokazuje podpowiedzi, w przeciwnym wypadku ukrywa */
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (switch1.isChecked())
                 {
@@ -126,17 +143,20 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
         });
 
 
-
+/**  timer odliczający czas  */
         textView_timer = findViewById(R.id.text_view);
         long duration = TimeUnit.SECONDS.toMillis(czas);
         new CountDownTimer(duration, 1000) {
             @Override
+            /**  akcje dziejące się co tyknięcie zegara  */
             public void onTick(long millisUntilFinished) {
                 sDuration = String.format(Locale.ENGLISH, "%02d : %02d"
                         , TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
                         , TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
                 textView_timer.setText(sDuration); //0 - startuje, 2- zrobiony wiec nic, 1- poprzedni rzad wyklikany, 3- poprzedni niewyklikany
+                /**  jesli zmienna rz ma status 1 to oznacza, że poprzedni rząd został uzupełniony więc może się pojawić kolejny
+                 * przy pojawieniu się kolejnego resetowany jest timer i liczy od początku */
                 if (rz2==1)
                 {
                     bt2_1.setVisibility(View.VISIBLE);
@@ -145,7 +165,8 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                     bt2_4.setVisibility(View.VISIBLE);
 
                     bt2_6.setVisibility(View.VISIBLE);
-                    if (rz3!=2) rz3=3;
+                    if (rz3!=2) rz3=3; /**  zmienna rz otrzymuje status 3- czyli przygotowanie kolejnego rzędu do pojawienia w akcji OnFinish timera */
+                    /**   reset timera, zmienna temp pilnuje by reset nastąpił tylko raz */
                     if (temp1==false){
                         this.cancel();
                         this.start();}
@@ -195,7 +216,7 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
                         this.start();}
                     temp4=true;
                     timerstop=true;
-                }
+                }/**  gdy rząd się pojawi co tick zegara zwiększana jest punktacja  */
                 if (bt1_6.getVisibility()==View.VISIBLE & pktrz1<20) pktrz1++;
                 if (bt2_6.getVisibility()==View.VISIBLE & pktrz2<20) pktrz2++;
                 if (bt3_6.getVisibility()==View.VISIBLE & pktrz3<20) pktrz3++;
@@ -271,6 +292,8 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
+/**  przy każdym kliknięciu przycisku sprawdzane jest czy ciag binarny zgadza się z losowo wygenerowanym i jeśli tak rząd jest ukrywany a punkty dodawane
+ * do aktualnego stanu */
     public void onClick(View v)
     {
 
@@ -458,7 +481,9 @@ public class Latwy extends AppCompatActivity implements View.OnClickListener {
             bt5_6.setText("0");
 
         }
+        /**  po każdym kliknięciu aktualizowany jest textView z punktacją  */
         punkt.setText(String.valueOf(pkt));
+        /**  akcja po wyklikaniu wszystkich rzędów, automatycznie przenoszenie gracza na kolejny poziom oraz przekazanie zdobytej punktacji  */
         if (licznik==5)
         {
             Toast.makeText(getApplicationContext()

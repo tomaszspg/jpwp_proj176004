@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+//WAŻNE: z poziomów szczegółowo zakomentowane zostało activity Latwy, gryż w innych aktywnościach w większości kod jest powtarzany
 
-
-
+/**
+ * Główna klasa aplikacji, uruchamia się na początku i zawiera przyciski przenoszące do poziomów oraz do aktywności ranking i pomoc
+ * @author Tomasz Sochacki
+ * */
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity  {
         Button sredni3 = findViewById(R.id.sredni3);
         Button trudny3 = findViewById(R.id.trudny3);
 
-        sredni.setOnClickListener(v -> {
+        sredni.setOnClickListener(v -> {  //tworzenie intentów pozwalających na przeniesienie się do kolejnych aktywności po kliknięciu w przycisk
             Intent intent1 = new Intent(MainActivity.this, Sredni.class);
             startActivity(intent1);
         });

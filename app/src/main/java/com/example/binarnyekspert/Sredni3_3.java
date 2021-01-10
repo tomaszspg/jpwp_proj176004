@@ -19,7 +19,9 @@ import android.widget.Toast;
 import java.util.Locale;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Klasa poziomu 3 trybu średniego trójkowego, zawiera całą mechanikę gry
+ * pobiera zmienną z punktami z poziomu 2, dodaje punkty za ten poziom i zapisuje punkty które później są wyświetlane w rankingu */
 public class Sredni3_3 extends AppCompatActivity implements View.OnClickListener {
     private Switch switch1;
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6;

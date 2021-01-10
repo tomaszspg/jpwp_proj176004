@@ -29,7 +29,9 @@ import org.w3c.dom.Text;
 import java.util.Locale;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Klasa poziomu 3 trybu łatwego binarnego, zawiera całą mechanikę gry
+ * pobiera zmienną z punktami z poziomu 2, dodaje punkty za ten poziom i zapisuje punkty które później są wyświetlane w rankingu */
 public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
     private Switch switch1;
     private Button bt1_1, bt1_2, bt1_3, bt1_4, bt1_5, bt1_6, bt2_1, bt2_2, bt2_3, bt2_4, bt2_5, bt2_6;
@@ -393,7 +395,6 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         if (v.getId() == R.id.bt5_4)
             bt5_4.setText(currentText54.equals("0") ? "1" : "0");
 
-        // String row1 = bt1_1.getText()+ bt1_2.getText()+bt1_3.getText()+bt1_4.getText()+bt1_5.getText();
         String row1 = bt1_1.getText().toString() + bt1_2.getText().toString() + bt1_3.getText().toString() + bt1_4.getText().toString()  ;
         String row2 = bt2_1.getText().toString() + bt2_2.getText().toString() + bt2_3.getText().toString() + bt2_4.getText().toString()  ;
         String row3 = bt3_1.getText().toString() + bt3_2.getText().toString() + bt3_3.getText().toString() + bt3_4.getText().toString()  ;
@@ -403,8 +404,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         int wynik=Integer.parseInt(bt1_6.getText().toString());
         if (dec1==wynik)
         {
-//                Toast.makeText(getApplicationContext()
-//                    , "Git jest", Toast.LENGTH_LONG).show();
+
             bt1_1.setVisibility(View.INVISIBLE);
             bt1_2.setVisibility(View.INVISIBLE);
             bt1_3.setVisibility(View.INVISIBLE);
@@ -424,8 +424,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         int wynik2=Integer.parseInt(bt2_6.getText().toString());
         if (dec2==wynik2)
         {
-//            Toast.makeText(getApplicationContext()
-//                    , "Git jest", Toast.LENGTH_LONG).show();
+
             bt2_1.setVisibility(View.INVISIBLE);
             bt2_2.setVisibility(View.INVISIBLE);
             bt2_3.setVisibility(View.INVISIBLE);
@@ -442,8 +441,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         int wynik3=Integer.parseInt(bt3_6.getText().toString());
         if (dec3==wynik3)
         {
-//            Toast.makeText(getApplicationContext()
-//                    , "Git jest", Toast.LENGTH_LONG).show();
+
             bt3_1.setVisibility(View.INVISIBLE);
             bt3_2.setVisibility(View.INVISIBLE);
             bt3_3.setVisibility(View.INVISIBLE);
@@ -453,15 +451,14 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
             licznik++;
             rz3=2;
             if (rz4!=2) rz4=1;
-            pkt+= 11-(pktrz3/2);
+            pkt+= 11-(pktrz3/2); //punkt zostaje odjęty po każdej sekundzie timera aż do wartości minimalnej
             bt3_6.setText("0");
         }
         int dec4= Integer.parseInt(row4,2); //2 - system dwojkowy, 3- system trojkowy itp
         int wynik4=Integer.parseInt(bt4_6.getText().toString());
         if (dec4==wynik4)
         {
-//            Toast.makeText(getApplicationContext()
-//                    , "Git jest", Toast.LENGTH_LONG).show();
+
             bt4_1.setVisibility(View.INVISIBLE);
             bt4_2.setVisibility(View.INVISIBLE);
             bt4_3.setVisibility(View.INVISIBLE);
@@ -478,8 +475,7 @@ public class Latwy3 extends AppCompatActivity implements View.OnClickListener {
         int wynik5=Integer.parseInt(bt5_6.getText().toString());
         if (dec5==wynik5)
         {
-            // Toast.makeText(getApplicationContext()
-            //         , "Git jest", Toast.LENGTH_LONG).show();
+
             bt5_1.setVisibility(View.INVISIBLE);
             bt5_2.setVisibility(View.INVISIBLE);
             bt5_3.setVisibility(View.INVISIBLE);

@@ -15,7 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-
+/** Klasa wyświetlająca instrukcję na temat systemów liczbowych wykorzystanych w grze  */
 public class Pomoc extends AppCompatActivity implements View.OnClickListener {
     TextView tekst;
     Button powrot;
@@ -27,7 +27,8 @@ public class Pomoc extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_pomoc);
         TextView tekst= (TextView) findViewById(R.id.tekst);
         Button powrot = findViewById(R.id.powrot);
-        tekst.setMovementMethod(new ScrollingMovementMethod());
+        tekst.setMovementMethod(new ScrollingMovementMethod()); //ustawienie mozliwosci scrollowania przy dlugim tekscie
+        //wykorzystanie tekstu we wcześniej przygotowanym pliku html
         tekst.setText(Html.fromHtml("<p style=\"text-align: center;\"><strong>Systemy liczbowe</strong></p>\n" +
                 "<p><strong>1. Dziesiętny (Decymalny)</strong></p>\n" +
                 "<p>Dla przeciętnego użytkownika komputer&oacute;w i nie tylko, najważniejszym i najbardziej znanym jest system dziesiętny. W tym systemie każdy od dziecka uczy się liczyć.</p>\n" +
@@ -45,7 +46,7 @@ public class Pomoc extends AppCompatActivity implements View.OnClickListener {
                 "<p>Przykład: 1012<sub>(3)</sub> = 1*3<sup>3</sup>+0*3<sup>2</sup>+1*3<sup>1</sup>+2*3<sup>0</sup> = 27+5 = 32<sub>(10)</sub></p>"));
 
 
-        powrot.setOnClickListener(v -> {
+        powrot.setOnClickListener(v -> { //dodanie przycisku powrotu do glownego menu
             Intent intent1 = new Intent(this, MainActivity.class);
             startActivity(intent1);
         });

@@ -393,63 +393,63 @@
         android:id="@+id/pod8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="30dp"
         android:layout_marginLeft="25dp"
         android:layout_marginBottom="56dp"
-        android:text="x27"
+        android:text="27"
 
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="x27" />
+        tools:text="27" />
 
     <TextView
         android:id="@+id/pod4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="52dp"
         android:layout_marginLeft="38dp"
         android:layout_marginBottom="56dp"
-        android:text="x9"
+        android:text="9"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
 
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod8"
-        tools:text="x9" />
+        tools:text="9" />
 
     <TextView
         android:id="@+id/pod2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="58dp"
         android:layout_marginLeft="48dp"
         android:layout_marginBottom="56dp"
-        android:text="x3"
+        android:text="3"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod4"
-        tools:text="x3" />
+        tools:text="3" />
 
     <TextView
         android:id="@+id/pod1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:layout_marginStart="55dp"
         android:layout_marginLeft="46dp"
         android:layout_marginBottom="56dp"
-        android:text="x1"
+        android:text="1"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pod2"
-        tools:text="x1" />
+        tools:text="1" />
 
     <Switch
         android:id="@+id/switch1"
