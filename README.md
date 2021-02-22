@@ -6,5 +6,3 @@ Temat gry: Binarny Ekspert
 Typ gry i kategoria: Serious game - learning
 
 Technologia wykonania: Java Android
-
-System kontroli wersji: Git w serwisie GitHub
